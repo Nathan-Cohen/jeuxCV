@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Jeux CV</title>
+    <script src="js/bonus.js"></script>
+    <script src="js/fond.js"></script>
+    <script src="js/personnage.js"></script>
+    <script src="js/ennemis.js"></script>
+    <script src="js/animation.js"></script>
+</head>
+<body>
+    
+    <div id="menu">
+        <img src="image/menubois.png" id="menuimg">
+        <img src="image/titrebois.png" id="menuimg">
+        <p id="menutexte">
+            Jeux CV
+        </p>
+        <p id="progression">
+            <!-- competence -->
+            <img id='croixhtml' src='image/croix.png' width='35px'>
+            <img src='image/html.png' width='35px'>
+            <img id='croixcss' src='image/croix.png' width='35px'>
+            <img src='image/css.png' width='35px'>
+            <img id='croixjquery' src='image/croix.png' width='35px'>
+            <img src='image/jQuery.png' width='35px'>
+            <img id='croixjavascript' src='image/croix.png' width='35px'>
+            <img src='image/javascript.png' width='35px'>
+            <img src='image/php.png' width='35px'>
+            <img id='croixphp' src='image/croix.png' width='35px'>
+
+            
+            <img id='croixhtml' src='image/croix.png' width='35px'>
+            <img src='image/bird.png' width='35px'>
+            <img id='croixcss' src='image/croix.png' width='35px'>
+            <img src='image/bird2.png' width='35px'>
+            <img id='croixjquery' src='image/croix.png' width='35px'>
+            <img src='image/bird3.png' width='35px'>
+
+
+        </p>
+    </div>
+    
+
+    <!-- fond -->
+    <div id="fond">
+            <div id="start">
+                    <div id='presentation'>
+                        <p>Utilisez les fleches du clavier (<img src="image/flechesclavier.png">) pour déplacer le personnage, évitez les arbres sur le chemin et récupérer les compétences<br>
+                        <button id="jouer">Jouer</button></p>
+                    </div>
+            </div>
+            <canvas id="canvas" width="700" height="525"></canvas>
+            <div id="score"></div>
+    </div>
+ 
+    <!-- bonus -->
+    <div id="bonus">
+        <div id="competence">
+            <h2>Mes compétences</h2>
+            <span id="html"></span>
+            <span id="css"></span>
+            <span id="jquery"></span>
+            <span id="javascript"></span>
+            <span id="php"></span>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
