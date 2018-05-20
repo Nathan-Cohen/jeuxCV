@@ -21,10 +21,10 @@ var bonusInitialisation = function(){
     {
      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    placementLeftDuBonusHtml = entierAleatoire(50, 151);
-    placementTopDuBonusHtml = entierAleatoire(100, 451);
+    placementLeftDuBonusHtml = entierAleatoire(50, 100);
+    placementTopDuBonusHtml = entierAleatoire(100, 300);
     
-    placementLeftDuBonusCss = entierAleatoire(301, 400);
+    placementLeftDuBonusCss = entierAleatoire(320, 400);
     placementTopDuBonusCss = entierAleatoire(50, 251);
     
     placementLeftDuBonusJquery = entierAleatoire(550, 650);
@@ -33,7 +33,7 @@ var bonusInitialisation = function(){
     placementLeftDuBonusJavascript = entierAleatoire(750, 850);
     placementTopDuBonusJavascript = entierAleatoire(0, 451);
     
-    placementLeftDuBonusPhp = entierAleatoire(1000, 1250);
+    placementLeftDuBonusPhp = entierAleatoire(850, 950);
     placementTopDuBonusPhp = entierAleatoire(50, 411);
 
     bonusHtml = 'html';
@@ -72,8 +72,8 @@ var bonusInitialisation = function(){
 }
 var dessineBonus = function(){
     //recupere la position du personnage
-    pixelLeftPerso = pixelLeft;
-    pixelTopPerso = pixelTop;
+    pixelLeftPerso = personnage.pixelLeft;
+    pixelTopPerso = personnage.pixelTop;
 
     //sauvegarde le contexte d'avant pour en creer un nouveau sur les images
     ctx.save();
@@ -81,22 +81,25 @@ var dessineBonus = function(){
     ctx.shadowOffsetY = 1;
     ctx.shadowColor = '#FFFFFF';
     ctx.shadowBlur = 50;
+    
     ctx.drawImage(imgHtml, positionInitialedeux-placementLeftDuBonusHtml, placementTopDuBonusHtml, 70, 90);
-    collisionHtml.funcCollisionBonus();
     //collision HTML
+    collisionHtml.funcCollisionBonus();
 
     ctx.drawImage(imgCss, positionInitialedeux+placementLeftDuBonusCss, placementTopDuBonusCss, 70, 90);
+    //collision CSS    
     collisionCss.funcCollisionBonus();
-    // collisionBonus2(placementTopDuBonusCss, pixelLeft, pixelTop, placementLeftDuBonusCss);
 
     ctx.drawImage(imgjQuery, positionInitialedeux+placementLeftDuBonusJquery, placementTopDuBonusJquery, 100, 100);
+    //collision jQuery    
     collisionJquery.funcCollisionBonus();
     
-
     ctx.drawImage(imgJavascript, positionInitialedeux+placementLeftDuBonusJavascript, placementTopDuBonusJavascript, 70, 90);
+    //collision Javascript
     collisionJavascript.funcCollisionBonus();
     
     ctx.drawImage(imgPhp, positionInitialedeux+placementLeftDuBonusPhp, placementTopDuBonusPhp, 70, 90);
+    //collision PHP    
     collisionPhp.funcCollisionBonus();
     
     ctx.restore();

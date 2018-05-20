@@ -124,3 +124,22 @@ h2{
     margin-left: -23%;
     
 }
+
+#croixBird{
+    position: absolute;
+    margin-top: 5%;
+    display: none;
+    
+}
+#croixBird2{
+    position: absolute;
+    margin-top: 5%;
+    display: none;
+    
+}
+#croixBird3{
+    position: absolute;
+    margin-top: 5%;
+    display: none;
+    
+}
