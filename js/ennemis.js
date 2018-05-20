@@ -73,6 +73,7 @@ var ennemisIniatialisation = function(){
 }
 
 
+
 var dessinEnnemi = function(){
     //affiche la branche
     branche = ctx.drawImage(imageBranche, positionInitialedeux, 20, 400, 500);
