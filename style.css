@@ -45,7 +45,8 @@ h2{
 }
 
 #fond{
-    width: 700px;
+    width: 55%;
+    max-width: 75%;
     margin: auto;
 }
 

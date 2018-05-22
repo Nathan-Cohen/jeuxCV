@@ -218,6 +218,9 @@ var toucheClavier = function(){
                         if(birdCollision.bird == false){
                             //si le tir touche l'oiseau ennemie on met la valeur en false pour ne pas le redessiner dans la page ennemis.js
                             objetBird.tirDansBird = false;
+                            //met la position de l'oiseau ennemie toucher a 0                           
+                            apparitionTopEnnemi = 0;
+                            bird.pxHorizontal = 0;                            
                             //met la valeur a true pour dessiner la collision de l'oiseau ennemi
                             personnage.collisionBirdTirActive = true;
         
@@ -225,6 +228,9 @@ var toucheClavier = function(){
                         if(bird2Collision.bird == false){
                             //si le tir touche l'oiseau ennemie on met la valeur en false pour ne pas le redessiner dans la page ennemis.js
                             objetBird2.tirDansBird2 = false;
+                            //met la position de l'oiseau ennemie toucher a 0
+                            apparitionTopEnnemiBird2 = 0;
+                            bird2.anime = 0;                            
                             //met la valeur a true pour dessiner la collision de l'oiseau ennemi
                             personnage.collisionBird2TirActive = true;
                             
@@ -232,6 +238,9 @@ var toucheClavier = function(){
                         if(bird3Collision.bird == false){
                             //si le tir touche l'oiseau ennemie on met la valeur en false pour ne pas le redessiner dans la page ennemis.js
                             objetBird3.tirDansBird3 = false;
+                            //met la position de l'oiseau ennemie toucher a 0                           
+                            apparitionTopEnnemiBird3 = 0;
+                            bird3.anime = 0;
                             //met la valeur a true pour dessiner la collision de l'oiseau ennemi
                             personnage.collisionBird3TirActive = true;
                         }
@@ -292,8 +301,8 @@ var toucheClavier = function(){
 }
 
 
-var ConstruitCollisionTir = function(positionTop, positionLeft, nomBird, spriteCollision, tailleHaut, tailleBas, tailleGauche, tailleDroite, divBird){
-    this.bird = nomBird;
+var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteCollision, tailleHaut, tailleBas, tailleGauche, tailleDroite, divBird){
+    this.bird = tirBird;
     this.top = positionTop;
     this.left = positionLeft;
     this.sprite = spriteCollision;
@@ -306,14 +315,11 @@ var ConstruitCollisionTir = function(positionTop, positionLeft, nomBird, spriteC
 
     this.funcCollisionEnnemis = function(){
     //collision bird
-    // console.log('compteur' + compteurExplosionTir);
-    // console.log('birdTop' + this.top);
-    // console.log('birdLeft' + this.left);
-    // console.log('tirTop' + pixelTopTir);
-    // console.log('tirLeft' + pixelLeftTir);
-        if(this.top - this.tailleHaut - 10 <= pixelTopTir && this.top + this.tailleBas + 20 >= pixelTopTir && this.left >= pixelLeftTir - this.tailleDroite - 20 && this.left <= pixelLeftTir + this.tailleGauche + 20){
-        console.log('boom');
-        console.log(this.divBird);
+        if(this.top - this.tailleHaut <= pixelTopTir && this.top + this.tailleBas >= pixelTopTir && this.left >= pixelLeftTir - this.tailleDroite && this.left <= pixelLeftTir + this.tailleGauche + 20){
+        // console.log('boom');
+        // console.log(this.divBird);
+            //met la valeur a false pour ne pas redessiner le tir si l'oiseau est toucher    
+        personnage.tirPressed = false;
 
             //recupere et affiche l'image de la croix sur l'oiseau grace a son ID
             var progression = document.getElementById(this.divBird);

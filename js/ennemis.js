@@ -16,6 +16,13 @@ var ennemisIniatialisation = function(){
     
     imgBird3 = new Image();
     imgBird3.src = "image/bird3.png";
+
+    objetBranche = {
+        tailleHautBranche: 100,
+        tailleBasBranche: 70,
+        tailleGaucheBranche: 71,
+        tailleDroiteBranche: -100
+    }
     
     objetBird = {
         tailleHautBird: 20,
@@ -254,8 +261,9 @@ var construireAnimationCorbeau = function(montempApparition, monanimationEnnemiH
 var ColisionBranche = function(){
             /*
             si le top est superieur a 100px et la position de la branche moin la taille de la branche moin le nombre de marge a gauche de l'oiseau doit etre inferieur ou egal a 10 et la position initiale est plus grandre que 100 OU si le top est superieur a 100px et la position de la branche moin la taille de la branche moin le nombre de marge a gauche de l'oiseau est egal a 0 et la position initiale est plus petite que 100
-            */        
-                if(personnage.pixelTop > 100 && (positionInitialedeux + 71) - personnage.pixelLeft <= 10 && positionInitialedeux > 100 || personnage.pixelTop > 100 && (positionInitialedeux + 51) - personnage.pixelLeft === 0 && positionInitialedeux < 100){
+            */      
+           
+                if(personnage.pixelTop > objetBranche.tailleHautBranche && (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft <= 10 && objetBranche.tailleDroiteBranche < (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft && positionInitialedeux > 100 || personnage.pixelTop > objetBranche.tailleHautBranche && (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft <= 10 && objetBranche.tailleDroiteBranche < (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft && positionInitialedeux < 100){
                     // console.log("boom");
                     objetBird.compteurExplosion++;
                     //stop le defilement et les points
