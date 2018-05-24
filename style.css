@@ -121,6 +121,11 @@ h2{
     display: inline-block;
 }
 
+#menu{
+    position: absolute;
+    display: inline-block;
+}
+
 #menuimg{
     width:250px;
     position: fixed;
