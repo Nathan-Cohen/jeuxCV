@@ -16,10 +16,12 @@ var persoInitialisation = function(){
         collisionBirdTirActive: false,
         collisionBird2TirActive: false,
         collisionBird3TirActive: false,
+        collisionBirdBossTirActive: false,
         positionSpriteTirCollision : 0
            
 
     }
+    
     imgPerso = new Image();
     imgPerso.src = "image/perso.png";
     
@@ -35,10 +37,17 @@ var persoInitialisation = function(){
     imgCollisionTir3 = new Image();
     imgCollisionTir3.src = "image/collision.png";
     
+    imgCollisionTir4 = new Image();
+    imgCollisionTir4.src = "image/collision.png";
+    
     pixelLeftTir = personnage.pixelLeft;
     pixelTopTir = personnage.pixelTop;
 
     compteurExplosionTir = 0;
+    compteurExplosionTirBird2 = 0;
+    compteurExplosionTirBird3 = 0;
+    compteurExplosionTirBirdBoss = 0;
+
 }
 
 
@@ -61,6 +70,12 @@ var dessinPerso = function(){
     if(personnage.collisionBird3TirActive){
     ctx.drawImage(imgCollisionTir3, personnage.positionSpriteTirCollision, 300, 250, 300, bird3Collision.left - bird3Collision.tailleDroite, bird3Collision.top, 200, 150);
     }
+    
+    //collision tir avec l'oiseau Boss
+    if(personnage.collisionBirdBossTirActive){
+    ctx.drawImage(imgCollisionTir4, personnage.positionSpriteTirCollision, 300, 250, 300, birdBossCollision.left - birdBossCollision.tailleDroite, birdBossCollision.top, 200, 150);
+    }
+
 
     //personnage
      //sauvegarde le contexte d'avant pour en creer un nouveau sur bird3
@@ -100,7 +115,7 @@ var toucheClavier = function(){
                         if(personnage.pixelLeft < canvas.width - 90){
                             personnage.pixelLeft += 3;
                             
-                            }else{
+                        }else{
                                 //la position Left est plus grande donc il n'avance plus pour ne pas sortir du canvas 
                             }
                         }, 20);
@@ -193,13 +208,17 @@ var toucheClavier = function(){
                 if(personnage.animationTirEnCour === false){
                     
                     //function de collision du tir 
-                    birdCollision = new ConstruitCollisionTir(apparitionTopEnnemi, bird.pxHorizontal, objetBird.tirDansBird, imgCollisionTir, objetBird.tailleHautBird, objetBird.tailleBasBird, objetBird.tailleDroiteBird, objetBird.tailleGaucheBird, objetBird.croixBird);
+                    birdCollision = new ConstruitCollisionTir(apparitionTopEnnemi, bird.pxHorizontal, objetBird.tirDansBird, imgCollisionTir, objetBird.tailleHautBird, objetBird.tailleBasBird, objetBird.tailleDroiteBird, objetBird.tailleGaucheBird, objetBird.croixBird, compteurExplosionTir);
                     
                     //function de collision du tir                     
-                    bird2Collision = new ConstruitCollisionTir(apparitionTopEnnemiBird2, bird2.anime, objetBird2.tirDansBird2, imgCollisionTir2, objetBird2.tailleHautBird2, objetBird2.tailleBasBird2, objetBird2.tailleDroiteBird2, objetBird2.tailleGaucheBird2, objetBird2.croixBird2);
+                    bird2Collision = new ConstruitCollisionTir(apparitionTopEnnemiBird2, bird2.anime, objetBird2.tirDansBird2, imgCollisionTir2, objetBird2.tailleHautBird2, objetBird2.tailleBasBird2, objetBird2.tailleDroiteBird2, objetBird2.tailleGaucheBird2, objetBird2.croixBird2, compteurExplosionTirBird2);
                     
                     //function de collision du tir 
-                    bird3Collision = new ConstruitCollisionTir(apparitionTopEnnemiBird3, bird3.anime, objetBird3.tirDansBird3, imgCollisionTir3, objetBird3.tailleHautBird3, objetBird3.tailleBasBird3, objetBird3.tailleDroiteBird3, objetBird3.tailleGaucheBird3, objetBird3.croixBird3);
+                    bird3Collision = new ConstruitCollisionTir(apparitionTopEnnemiBird3, bird3.anime, objetBird3.tirDansBird3, imgCollisionTir3, objetBird3.tailleHautBird3, objetBird3.tailleBasBird3, objetBird3.tailleDroiteBird3, objetBird3.tailleGaucheBird3, objetBird3.croixBird3, compteurExplosionTirBird3);
+                    
+                    //function de collision du tir 
+                    birdBossCollision = new ConstruitCollisionTir(apparitionTopEnnemiBoss, birdBoss.anime, boss.tirDansBirdBoss, imgCollisionTir4, boss.tailleHautBirdBoss, boss.tailleBasBirdBoss, boss.tailleDroiteBirdBoss, boss.tailleGaucheBirdBoss, objetBird3.croixBird3, compteurExplosionTirBirdBoss);
+
                     //redefini la taille de pixel top a chaque tir pour tirer horizontalement au perso
                     pixelTopTir = personnage.pixelTop;
                     //redefini la taille de pixel left pour demarrer l'animation du tir au niveau du bec du perso
@@ -208,21 +227,38 @@ var toucheClavier = function(){
                     personnage.tirPressed = true;
                     //met le compteur de l'animation de la collision du tir a 0
                     compteurExplosionTir = 0;
+                    compteurExplosionTirBird2 = 0;
+                    compteurExplosionTirBird3 = 0;
+                    compteurExplosionTirBirdBoss = 0;
                     //tir du perso
                     function tir(){
                         pixelLeftTir += 1;
                         birdCollision.funcCollisionEnnemis();
                         bird2Collision.funcCollisionEnnemis();
                         bird3Collision.funcCollisionEnnemis();
+                        birdBossCollision.funcCollisionEnnemis();
 
                         if(birdCollision.bird == false){
                             //si le tir touche l'oiseau ennemie on met la valeur en false pour ne pas le redessiner dans la page ennemis.js
                             objetBird.tirDansBird = false;
                             //met la position de l'oiseau ennemie toucher a 0                           
                             apparitionTopEnnemi = 0;
+                            //arrete l'animation de droite a gauche                            
                             bird.pxHorizontal = 0;                            
                             //met la valeur a true pour dessiner la collision de l'oiseau ennemi
                             personnage.collisionBirdTirActive = true;
+                            //si le compteur de l'animation de l'explosion est supérieur a 20
+                            if(birdCollision.compteur > 20){
+                                birdCollision.sprite.src = "";
+
+                            }
+                            //affiche la div formation 
+                             var formation = document.getElementById('formation');
+                             formation.style.display = "block";
+                            //affiche la formation 1                              
+                             var bac = document.getElementById('bac');
+                             bac.style.display = "block";
+
         
                         }
                         if(bird2Collision.bird == false){
@@ -230,9 +266,20 @@ var toucheClavier = function(){
                             objetBird2.tirDansBird2 = false;
                             //met la position de l'oiseau ennemie toucher a 0
                             apparitionTopEnnemiBird2 = 0;
+                            //arrete l'animation de droite a gauche                            
                             bird2.anime = 0;                            
                             //met la valeur a true pour dessiner la collision de l'oiseau ennemi
                             personnage.collisionBird2TirActive = true;
+                            //si le compteur de l'animation de l'explosion est supérieur a 20          
+                            if(bird2Collision.compteur > 20){
+                            bird2Collision.sprite.src = "";
+                            }
+                            //affiche la div formation 
+                            var formation = document.getElementById('formation');
+                            formation.style.display = "block";
+                            //affiche la formation 2
+                            var bts = document.getElementById('bts');
+                            bts.style.display = "block";
                             
                         }
                         if(bird3Collision.bird == false){
@@ -240,12 +287,60 @@ var toucheClavier = function(){
                             objetBird3.tirDansBird3 = false;
                             //met la position de l'oiseau ennemie toucher a 0                           
                             apparitionTopEnnemiBird3 = 0;
+                            //arrete l'animation de droite a gauche                            
                             bird3.anime = 0;
                             //met la valeur a true pour dessiner la collision de l'oiseau ennemi
                             personnage.collisionBird3TirActive = true;
+                            //si le compteur de l'animation de l'explosion est supérieur a 20
+                            if(bird2Collision.compteur > 20){
+                            bird3Collision.sprite.src = "";
+                            }
+                            //affiche la div formation 
+                            var formation = document.getElementById('formation');
+                            formation.style.display = "block";
+                            //affiche la formation 2
+                            var certification = document.getElementById('certification');
+                            certification.style.display = "block";
+                            
+                        }
+
+                        //si tout les ennemis on été tuer
+                        if(birdCollision.bird == false && bird2Collision.bird == false && bird3Collision.bird == false){
+                            //si le boss est tuer
+                            if(birdBossCollision.bird == false){
+                                //arrete les points
+                                point = 0;
+                                //arrete le scroll                                
+                                vitesse = 0;
+                                //si le tir touche l'oiseau ennemie on met la valeur en false pour ne pas le redessiner dans la page ennemis.js
+                            boss.tirDansBirdBoss = false;
+                            //met la position de l'oiseau ennemie toucher a 0                           
+                            apparitionTopEnnemiBirdBoss = 0;
+                            //arrete l'animation de droite a gauche
+                            birdBoss.anime = 0;
+                            //met la valeur a true pour dessiner la collision de l'oiseau ennemi
+                            personnage.collisionBirdBossTirActive = true;
+                            //si le compteur de l'animation de l'explosion est supérieur a 20
+                            if(birdBossCollision.compteur > 20){
+                                birdBossCollision.sprite.src = "";
+                            }
+                            //attent 1000 avant d'afficher "you win"
+                            setTimeout(function(){
+                            //afficher Gagner
+                            var win = document.getElementById('win');
+                            win.style.display = "block";
+                            }, 1000);
+                            
+                            }else{
+                                boss.active = true;
+                                //function qui active le compte a rebours du boss
+                                animationCountDown();
+                                //met animationCountDownActive a false pour ne pas ré activer l'animation 3 2 1
+                                animationCountDownActive = false;
+                            }
+                            
                         }
                         
-
                         //si le tir atteint 350 pixel de gauche on termine et on remet les valeurs a 0
                         if(pixelLeftTir === 350){
                             pixelLeftTir = personnage.pixelLeft;
@@ -301,7 +396,7 @@ var toucheClavier = function(){
 }
 
 
-var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteCollision, tailleHaut, tailleBas, tailleGauche, tailleDroite, divBird){
+var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteCollision, tailleHaut, tailleBas, tailleGauche, tailleDroite, divBird, compteurAnimationCollision){
     this.bird = tirBird;
     this.top = positionTop;
     this.left = positionLeft;
@@ -311,6 +406,7 @@ var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteC
     this.tailleGauche = tailleGauche;
     this.tailleDroite = tailleDroite;
     this.divBird = divBird;
+    this.compteur = compteurAnimationCollision;
 
 
     this.funcCollisionEnnemis = function(){
@@ -333,19 +429,18 @@ var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteC
             //redefini la taille de pixel top pour la position de la collision
             positionTop = this.top;
             //incremente 1 au compteur d'animation de la collision du tir
-            compteurExplosionTir++;                                                                     
-            if(compteurExplosionTir < 5){
+            this.compteur++;                                                                     
+            if(this.compteur < 5){
                 //dessine l'image de l'explosion 1
                 personnage.positionSpriteTirCollision = 0;
-            }else if (compteurExplosionTir < 9){
+            }else if (this.compteur < 9){
                 //dessine l'image de l'explosion 2
                 personnage.positionSpriteTirCollision = 170;
-            }else if (compteurExplosionTir > 12){
+            }else if (this.compteur > 12){
                 //dessine l'image de l'explosion 3
                 personnage.positionSpriteTirCollision = 450;
-            }else if(compteurExplosionTir < 20){
-                // console.log('bird ' + imgCollisionTir);
-                //detruit l'image de l'explosion 4
+            }else if(this.compteur < 20){
+                //detruit l'image de l'explosion 
                 this.sprite.src = '';
                 
             }

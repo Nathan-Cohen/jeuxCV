@@ -17,6 +17,9 @@ var ennemisIniatialisation = function(){
     imgBird3 = new Image();
     imgBird3.src = "image/bird3.png";
 
+    imgBoss = new Image();
+    imgBoss.src = "image/flappyDragon/frame-1.png";
+
     objetBranche = {
         tailleHautBranche: 100,
         tailleBasBranche: 70,
@@ -53,7 +56,8 @@ var ennemisIniatialisation = function(){
         imgBird2: "image/bird2.png",
         imgBird2AileBas: "image/bird2ailesbas.png",
         sourceBird2: imgBird2,
-        positionLeftInitialeBird2: 0,        
+        positionLeftInitialeBird2: 0,  
+        vitesse: 6,      
         //function aleatoire pour definir le temp d'apparition d'un oiseau ennemi
         entierAleatoire: function (min, max){
             return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -74,11 +78,48 @@ var ennemisIniatialisation = function(){
         imgBird3AileBas: "image/bird3ailesbas.png",
         sourceBird3: imgBird3,
         positionLeftInitialeBird3: 0,
+        vitesse: 6,              
         //function aleatoire pour definir le temp d'apparition d'un oiseau ennemi
         entierAleatoire: function (min, max){
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     }
+
+
+    boss = {
+        tailleHautBirdBoss: 30,
+        tailleBasBirdBoss: 100,
+        tailleGaucheBirdBoss: 90,
+        tailleDroiteBirdBoss: 90,
+        tailleWidth: 1000,
+        tailleHeight: 1000,
+        animationEnnemiHorizontalBoss: 2000,
+        animationEnnemiAileBoss: 0,
+        tirDansBirdBoss: true,                        
+        active: false,
+        imgBoss: "image/flappyDragon/frame-1.png",
+        imgBossAileBas: "image/flappyDragon/frame-3.png",
+        sourceBoss: imgBoss,
+        vitesse: 7,              
+        //function aleatoire pour definir le temp d'apparition d'un oiseau ennemi
+        entierAleatoire: function (min, max){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    }
+    //met animationCountDownActive a true pour activer l'animation 3 2 1
+    animationCountDownActive = true;
+
+    tempApparitionBoss = boss.entierAleatoire(70, 101);
+    apparitionTopEnnemiBoss = boss.entierAleatoire(40, 351);
+    
+    // tempApparition = 150;
+    // apparitionTopEnnemi = 100;
+
+    // tempApparitionBird2 = 100;
+    // apparitionTopEnnemiBird2 = 100;
+
+    // tempApparitionBird3 = 100;
+    // apparitionTopEnnemiBird3 = 100;
 
     tempApparition = objetBird.entierAleatoire(70, 101);
     apparitionTopEnnemi = objetBird.entierAleatoire(40, 351);
@@ -89,17 +130,25 @@ var ennemisIniatialisation = function(){
     tempApparitionBird3 = objetBird3.entierAleatoire(101, 401);
     apparitionTopEnnemiBird3 = objetBird3.entierAleatoire(10, 401);
 
+
+
+
     //bird corbeau
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi    
     bird = new construireAnimationCorbeau(tempApparition, objetBird.animationEnnemiHorizontal, objetBird.compteurAnimationEnnemiBouche);
-    
+ 
     //bird2 marron
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi
-    bird2 = new ConstruireAnimationBird(tempApparitionBird2, objetBird2.animationEnnemiHorizontalBird2, objetBird2.animationEnnemiAileBird2, objetBird2.imgBird2, objetBird2.imgBird2AileBas, objetBird2.sourceBird2);
+    bird2 = new ConstruireAnimationBird(tempApparitionBird2, objetBird2.animationEnnemiHorizontalBird2, objetBird2.animationEnnemiAileBird2, objetBird2.imgBird2, objetBird2.imgBird2AileBas, objetBird2.sourceBird2, objetBird2.vitesse);
     
     //bird3 jaune
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi
-    bird3 = new ConstruireAnimationBird(tempApparitionBird3, objetBird3.animationEnnemiHorizontalBird3, objetBird3.animationEnnemiAileBird3, objetBird3.imgBird3, objetBird3.imgBird3AileBas, objetBird3.sourceBird3);
+    bird3 = new ConstruireAnimationBird(tempApparitionBird3, objetBird3.animationEnnemiHorizontalBird3, objetBird3.animationEnnemiAileBird3, objetBird3.imgBird3, objetBird3.imgBird3AileBas, objetBird3.sourceBird3, objetBird3.vitesse);
+       
+    //bird Boss
+    // envoie les parametres dans la fonction pour animer l'oiseau ennemi    
+    birdBoss = new ConstruireAnimationBird(tempApparitionBoss, boss.animationEnnemiHorizontalBoss, boss.animationEnnemiAileBoss, boss.imgBoss, boss.imgBossAileBas, boss.sourceBoss, boss.vitesse);
+    
 }
 
 
@@ -166,27 +215,58 @@ var dessinEnnemi = function(){
     bird3.funcAnimation();
 
     }
+
+    if(boss.active){
+        if(boss.tirDansBirdBoss){
+            ctx.drawImage(imgBoss, 0, 0, boss.tailleWidth, boss.tailleHeight, birdBoss.anime, apparitionTopEnnemiBoss, 200, 200);
+            // vitesse = 3;
+                ColisionBird(apparitionTopEnnemiBoss, personnage.pixelLeft, birdBoss.anime, boss.tailleHautBirdBoss, boss.tailleBasBirdBoss, boss.tailleDroiteBirdBoss, boss.tailleGaucheBirdBoss);
+                birdBoss.funcAnimation();
+            
+        }
+    }
      
     requestAnimationFrame(dessinEnnemi);
     
+}
+
+//affiche 3 2 1 Boss si tout les oiseau ennemis sont tuer
+var animationCountDown = function(){
+    var countDownDate = "3";
+    if(animationCountDownActive){
+        var x = setInterval(function() {
+            var result = countDownDate--;
+            document.getElementById("countDown").innerHTML = result;
+            if (result === 0) {
+                document.getElementById("countDown").innerHTML = "Boss !!";
+            }
+            if (result < 0) {
+                clearInterval(x);
+                document.getElementById("countDown").innerHTML = "";
+            }
+        }, 1000);
+
     }
+}
+
 
                         ////////////////ANIMATION DU SPRITE//////////////
-var ConstruireAnimationBird = function(montempApparition, monanimationEnnemiHorizontal, monAnimationEnnemiAile, imgbird, imgbirdailebas, source){
+var ConstruireAnimationBird = function(montempApparition, monanimationEnnemiHorizontal, monAnimationEnnemiAile, imgbird, imgbirdailebas, source, vitesse){
     this.img = imgbird;
     this.imgailebas = imgbirdailebas;
     this.imgsource = source;
     this.temp = montempApparition;
     this.anime = monanimationEnnemiHorizontal;
     this.aile = monAnimationEnnemiAile;
+    this.vitesse = vitesse;
     this.funcAnimation = function(){
         // console.log(this.anime);
 // bird2 
 this.temp--;
 //si le temp d'apparition est inferieur a 0 on affiche l'oiseau ennemis et on lui retire 6 a chaque passage pour le decaler ver la gauche
 if(this.temp < 0){
-    //enleve -6 au compteur de droite a gauche
-     this.anime =  this.anime - 6;
+    //enleve les px au compteur de droite a gauche
+     this.anime =  this.anime - this.vitesse;
     this.aile++;
         if(this.aile > 20){
             this.aile = 0;
@@ -197,7 +277,7 @@ if(this.temp < 0){
         }
     }
 
-    //si l'animationEnnemi est inferieur a -54 (pour disparaitre de l'ecran) on ajoute un nouveau temp d'apparition au prochain oiseau ennemi et on remet l'animation au droite (750px)
+    //si l'animationEnnemi est inferieur a -54 (pour disparaitre de l'ecran) on ajoute un nouveau temp d'apparition au prochain oiseau ennemi et on remet l'animation a droite (750px)
     if( this.anime <-54){
         this.temp = objetBird.entierAleatoire(251, 600);
          this.anime = 750;            
@@ -287,6 +367,17 @@ var ColisionBranche = function(){
                     }        
                     //arrete l'ecoute des touche
                     window.clearInterval(fleche);
+
+                    //attent 1000 avant d'afficher "you lose"
+                    setTimeout(function(){
+                        //affiche la div lose
+                        var lose = document.getElementById('lose');
+                        lose.style.display = "block";
+                        //affiche le boutton restart
+                        var restart = document.getElementById('restart');
+                        restart.style.display = "block";
+                    }, 1000);
+                    
                     
                 }
         
@@ -307,7 +398,6 @@ function ColisionBird (apparitionTopEnnemi, pixelLeft, animationEnnemiHorizontal
      point = 0;
      //supprimer l'image de l'oiseau
      imgPerso.src = "";
-     
      //image de la collision avec le perso et l'oiseau ennemis
      if(objetBird.compteurExplosion < 5){
          //dessine l'image de l'explosion 1
@@ -324,5 +414,14 @@ function ColisionBird (apparitionTopEnnemi, pixelLeft, animationEnnemiHorizontal
      }
      //arrete l'ecoute des touche
      window.clearInterval(fleche);
+     //attent 1000 avant d'afficher "you lose"
+     setTimeout(function(){
+        //affiche la div lose
+        var lose = document.getElementById('lose');
+        lose.style.display = "block";
+        //affiche le boutton restart
+        var restart = document.getElementById('restart');
+        restart.style.display = "block";
+    }, 1000);
  }
 }

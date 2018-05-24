@@ -1,9 +1,9 @@
 window.addEventListener('load', function(){
     var start = document.getElementById('start');
     var jouer = document.getElementById('jouer');
-
-
+    jouer.addEventListener('click', function(){
         start.style.display = "none";
+
         //fond
         fondInitialisation();
         dessinImage();
@@ -25,7 +25,20 @@ window.addEventListener('load', function(){
         dessineBonus();
         // window.setInterval(dessineBonus, 25);
 
-        //Tir
-        
+    });  
+    
+    
+var restart = document.getElementById('restart');
+restart.addEventListener('click', function(){
 
-    });
+location.reload();
+
+
+});
+
+
+
+
+
+
+});

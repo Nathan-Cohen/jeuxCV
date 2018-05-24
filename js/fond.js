@@ -19,7 +19,7 @@ var dessinImage = function(){
     positionInitiale = ScrollImage(img, positionInitiale, vitesse);
     positionInitialedeux = ScrollImage(img, positionInitialedeux, vitesse);
     
-requestAnimationFrame(dessinImage);
+intervalDessinImage = requestAnimationFrame(dessinImage);
     
 }
                     ////////////////FONCTION CONSTRUCTEUR/////////////////

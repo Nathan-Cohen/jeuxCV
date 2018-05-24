@@ -114,22 +114,58 @@ var dessineBonus = function(){
     ctx.drawImage(imgHtml, positionInitialedeux-placementLeftDuBonusHtml, placementTopDuBonusHtml, 70, 90);
     //collision HTML
     collisionHtml.funcCollisionBonus();
+    //anime le bonus de haut en bas
+    placementTopDuBonusHtml++;
+    collisionHtml.positionTop++;
+    if(placementTopDuBonusHtml == 500){
+        placementTopDuBonusHtml = -100;
+        collisionHtml.positionTop = -100;
+    }
+    
 
     ctx.drawImage(imgCss, positionInitialedeux+placementLeftDuBonusCss, placementTopDuBonusCss, 70, 90);
     //collision CSS    
     collisionCss.funcCollisionBonus();
+        //anime le bonus de haut en bas
+        placementTopDuBonusCss--;
+        collisionCss.positionTop--;
+        if(placementTopDuBonusCss == -100){
+            placementTopDuBonusCss = 500;
+            collisionCss.positionTop = 500;
+        }
 
     ctx.drawImage(imgjQuery, positionInitialedeux+placementLeftDuBonusJquery, placementTopDuBonusJquery, 100, 100);
     //collision jQuery    
     collisionJquery.funcCollisionBonus();
+            //anime le bonus de haut en bas
+            placementTopDuBonusJquery++;
+            collisionJquery.positionTop++;
+            if(placementTopDuBonusJquery == 500){
+                placementTopDuBonusJquery = -100;
+                collisionJquery.positionTop = -100;
+            }
     
     ctx.drawImage(imgJavascript, positionInitialedeux+placementLeftDuBonusJavascript, placementTopDuBonusJavascript, 70, 90);
     //collision Javascript
     collisionJavascript.funcCollisionBonus();
+                //anime le bonus de haut en bas
+                placementTopDuBonusJavascript--;
+                collisionJavascript.positionTop--;
+                if(placementTopDuBonusJavascript == -100){
+                    placementTopDuBonusJavascript = 500;
+                    collisionJavascript.positionTop = 500;
+                }
     
     ctx.drawImage(imgPhp, positionInitialedeux+placementLeftDuBonusPhp, placementTopDuBonusPhp, 70, 90);
     //collision PHP    
     collisionPhp.funcCollisionBonus();
+                //anime le bonus de haut en bas
+                placementTopDuBonusPhp++;
+                collisionPhp.positionTop++;
+                if(placementTopDuBonusPhp == 500){
+                    placementTopDuBonusPhp = -100;
+                    collisionPhp.positionTop = -100;
+                }
     
     ctx.restore();
 
@@ -159,7 +195,11 @@ var dessineBonus = function(){
                     //recupere et affiche l'image de la compétence grace a son ID
                     var divCompetence = document.getElementById(this.bonus);
                     divCompetence.innerHTML = this.competence;
+                    //supprime l'image du bonus
                     this.bonusSource.src = "";
+                    //recupere et affiche la div competence grace a son ID                    
+                    var divCompetence = document.getElementById("competence");
+                    divCompetence.style.display = 'block';
             
                 }
 
@@ -172,7 +212,11 @@ var dessineBonus = function(){
                     //recupere et affiche l'image de la compétence grace a son ID
                     var divCompetence = document.getElementById(this.bonus);
                     divCompetence.innerHTML = this.competence;
+                    //supprime l'image du bonus                    
                     this.bonusSource.src = "";
+                    //recupere et affiche la div competence grace a son ID                    
+                    var divCompetence = document.getElementById("competence");
+                    divCompetence.style.display = 'block';
                  }
             }
 

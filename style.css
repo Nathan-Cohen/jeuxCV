@@ -1,7 +1,7 @@
 body{
     font-family: calibri;
     background-image: url(image/fondjungle.jpg);    
-    background-size: cover;    
+    /* background-size: cover;     */
 }
 
 #start{
@@ -9,6 +9,24 @@ body{
     width: 700px;
     background-image: url("image/fond.png");
     position: absolute;
+}
+
+#restart{
+    margin-top: -212px;
+    margin-left: 550px;
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.8;
+    display: none;
+}
+#restart:hover{
+    background-color: rgb(214, 213, 213);
 }
 
 #presentation{
@@ -45,9 +63,17 @@ h2{
 }
 
 #fond{
-    width: 55%;
-    max-width: 75%;
+    width: 700px;
+    margin-left: 270px;
+}
+
+#countDown{
+    font-size: 55px;
+    font-weight: 30;
+    position: absolute;
     margin: auto;
+    margin-left: 45%;
+    margin-top: -27%;
 }
 
 #canvas{
@@ -68,8 +94,31 @@ h2{
     background-image: url(image/bois.jpg);
     box-shadow: inset 0px 0px 20px 2px black;
     background-size: contain;
-    width: 100%;
+    width: 1250px;
     height: 300px;
+    display: none;
+}
+
+#formation{
+    float: left;
+    background-image: url(image/bois.jpg);
+    box-shadow: inset 0px 0px 20px 2px black;
+    background-size: contain;
+    width: 1250px;
+    margin-top: 10px;
+    display: none;
+}
+
+#formation img{
+    float: left;
+    margin-top: -69px;
+    margin-left: 51px;
+    width: 75px;
+}
+
+#menu{
+    position: fixed;
+    display: inline-block;
 }
 
 #menuimg{
@@ -88,11 +137,11 @@ h2{
 }
 
 #progression{
-    position: fixed;
-    margin-top: 8%;
+    position: relative;
+    margin-top: 34%;
     min-width: 3%;
-    max-width: 12%;
-    margin-left: 4%;
+    max-width: 57%;
+    margin-left: 16%;
 }
 
 #croixhtml{
@@ -143,4 +192,34 @@ h2{
     margin-top: 5%;
     display: none;
     
+}
+
+#win{
+    margin-top: -530px;
+    margin-left: 250px;
+    position: absolute;
+    display: none;
+}
+
+#lose{
+    margin-top: -530px;
+    margin-left: 250px;
+    position: absolute;
+    display: none;
+}
+
+#bac, #bts, #certification{
+    float: left;
+    width: 20%;
+    font-size: 20px;
+    margin: auto;
+    font-weight: 30;
+    margin-left: 13%;
+    display: none;
+}
+
+#bac span, #bts span, #certification span{
+    font-size: 30px;
+    font-weight: bold;
+    display: block;
 }
