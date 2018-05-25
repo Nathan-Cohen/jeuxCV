@@ -1,6 +1,7 @@
 window.addEventListener('load', function(){
     var start = document.getElementById('start');
     var jouer = document.getElementById('jouer');
+    var body = document.getElementsByTagName('body');
     body.style.display = "block";
     jouer.addEventListener('click', function(){
         start.style.display = "block";
