@@ -1,10 +1,8 @@
 window.addEventListener('load', function(){
     var start = document.getElementById('start');
     var jouer = document.getElementById('jouer');
-    var monBody = document.getElementsByTagName('body');
-    monBody[0].style.display = "block";
     jouer.addEventListener('click', function(){
-        start.style.display = "block";
+        start.style.display = "none";
 
         //fond
         fondInitialisation();
