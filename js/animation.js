@@ -1,8 +1,12 @@
+var body = document.getElementsByTagName('body');
+body.style.display = "none";
+
 window.addEventListener('load', function(){
     var start = document.getElementById('start');
     var jouer = document.getElementById('jouer');
+    body.style.display = "block";
     jouer.addEventListener('click', function(){
-        start.style.display = "none";
+        start.style.display = "block";
 
         //fond
         fondInitialisation();
