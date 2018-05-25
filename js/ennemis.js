@@ -112,6 +112,7 @@ var ennemisIniatialisation = function(){
     tempApparitionBoss = boss.entierAleatoire(70, 101);
     apparitionTopEnnemiBoss = boss.entierAleatoire(40, 351);
     
+    CompteurAnimationLose = 0;
     // tempApparition = 150;
     // apparitionTopEnnemi = 100;
 
@@ -373,6 +374,11 @@ var ColisionBranche = function(){
                         //affiche la div lose
                         var lose = document.getElementById('lose');
                         lose.style.display = "block";
+                        //animation pour l'affichage de l'image lose
+                        if(CompteurAnimationLose < 10){
+                            CompteurAnimationLose = CompteurAnimationLose + 0.05;
+                            lose.style.opacity = CompteurAnimationLose;
+                        }
                         //affiche le boutton restart
                         var restart = document.getElementById('restart');
                         restart.style.display = "block";
@@ -419,6 +425,11 @@ function ColisionBird (apparitionTopEnnemi, pixelLeft, animationEnnemiHorizontal
         //affiche la div lose
         var lose = document.getElementById('lose');
         lose.style.display = "block";
+        //animation pour l'affichage de l'image lose
+        if(CompteurAnimationLose < 10){
+            CompteurAnimationLose = CompteurAnimationLose + 0.05;
+            lose.style.opacity = CompteurAnimationLose;
+        }
         //affiche le boutton restart
         var restart = document.getElementById('restart');
         restart.style.display = "block";

@@ -324,11 +324,15 @@ var toucheClavier = function(){
                             if(birdBossCollision.compteur > 20){
                                 birdBossCollision.sprite.src = "";
                             }
+                            //affiche la div experience 
+                            var experience = document.getElementById('experience');
+                            experience.style.display = "block";
                             //attent 1000 avant d'afficher "you win"
                             setTimeout(function(){
-                            //afficher Gagner
-                            var win = document.getElementById('win');
-                            win.style.display = "block";
+                                //afficher Gagner
+                                var win = document.getElementById('win');
+                                win.style.display = "block";
+                                
                             }, 1000);
                             
                             }else{
