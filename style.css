@@ -1,6 +1,7 @@
 body{
     font-family: calibri;
     background-image: url(image/fondjungle.jpg);    
+    display: none;
     /* background-size: cover;     */
 }
 

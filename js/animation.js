@@ -1,6 +1,3 @@
-var body = document.getElementsByTagName('body');
-body.style.display = "none";
-
 window.addEventListener('load', function(){
     var start = document.getElementById('start');
     var jouer = document.getElementById('jouer');
