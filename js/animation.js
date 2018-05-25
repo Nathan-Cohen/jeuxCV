@@ -1,8 +1,8 @@
 window.addEventListener('load', function(){
     var start = document.getElementById('start');
     var jouer = document.getElementById('jouer');
-    var body = document.getElementsByTagName('body');
-    body.style.display = "block";
+    var monBody = document.getElementsByTagName('body');
+    monBody[0].style.display = "block";
     jouer.addEventListener('click', function(){
         start.style.display = "block";
 
