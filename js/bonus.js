@@ -17,6 +17,8 @@ var bonusInitialisation = function(){
     imgPhp.src = "image/php.png";
     
     objetBonus = {
+        ToutLesBonusToucher: false,
+        
         Html: {
             bonusHtml: 'html',
             bonusSourceHtml: imgHtml,
@@ -25,6 +27,7 @@ var bonusInitialisation = function(){
             tailleBas: 90,
             tailleGauche: 80,
             tailleDroite: 50,
+            collision: false
 
         },
         Css: {
@@ -35,6 +38,8 @@ var bonusInitialisation = function(){
             tailleBas: 90,
             tailleGauche: 80,
             tailleDroite: 50,
+            collision: false
+            
         },
         Jquery: {
             bonusJquery: 'jquery',
@@ -44,6 +49,8 @@ var bonusInitialisation = function(){
             tailleBas: 90,
             tailleGauche: 80,
             tailleDroite: 50,
+            collision: false
+            
         },
         Javascript: {
             bonusJavascript: 'javascript',
@@ -53,6 +60,8 @@ var bonusInitialisation = function(){
             tailleBas: 90,
             tailleGauche: 80,
             tailleDroite: 50,
+            collision: false
+            
         },
         Php: {
             bonusPhp: 'php',
@@ -62,6 +71,8 @@ var bonusInitialisation = function(){
             tailleBas: 90,
             tailleGauche: 100,
             tailleDroite: 50,
+            collision: false
+            
         },
 
         entierAleatoire:  //function aleatoire pour placer les bonus
@@ -71,10 +82,12 @@ var bonusInitialisation = function(){
         }
 
     }
-    placementLeftDuBonusHtml = objetBonus.entierAleatoire(50, 100);
+
+
+    placementLeftDuBonusHtml = objetBonus.entierAleatoire(0, 100);
     placementTopDuBonusHtml = objetBonus.entierAleatoire(100, 300);
 
-    placementLeftDuBonusCss = objetBonus.entierAleatoire(320, 400);
+    placementLeftDuBonusCss = objetBonus.entierAleatoire(340, 450);
     placementTopDuBonusCss = objetBonus.entierAleatoire(50, 251);
 
     placementLeftDuBonusJquery = objetBonus.entierAleatoire(550, 650);
@@ -86,20 +99,25 @@ var bonusInitialisation = function(){
     placementLeftDuBonusPhp = objetBonus.entierAleatoire(850, 950);
     placementTopDuBonusPhp = objetBonus.entierAleatoire(50, 411);
 
-    collisionHtml = new CollisionBonus(placementTopDuBonusHtml, placementLeftDuBonusHtml, objetBonus.Html.bonusHtml, objetBonus.Html.bonusSourceHtml, objetBonus.Html.competenceHtml, objetBonus.Html.tailleHaut, objetBonus.Html.tailleBas, objetBonus.Html.tailleGauche, objetBonus.Html.tailleDroite);
+    collisionHtml = new CollisionBonus(placementTopDuBonusHtml, placementLeftDuBonusHtml, objetBonus.Html.bonusHtml, objetBonus.Html.bonusSourceHtml, objetBonus.Html.competenceHtml, objetBonus.Html.tailleHaut, objetBonus.Html.tailleBas, objetBonus.Html.tailleGauche, objetBonus.Html.tailleDroite, objetBonus.Html.collision);
     
-    collisionCss = new CollisionBonus(placementTopDuBonusCss, placementLeftDuBonusCss, objetBonus.Css.bonusCss, objetBonus.Css.bonusSourceCss, objetBonus.Css.competenceCss, objetBonus.Css.tailleHaut, objetBonus.Css.tailleBas, objetBonus.Css.tailleGauche, objetBonus.Css.tailleDroite);
+    collisionCss = new CollisionBonus(placementTopDuBonusCss, placementLeftDuBonusCss, objetBonus.Css.bonusCss, objetBonus.Css.bonusSourceCss, objetBonus.Css.competenceCss, objetBonus.Css.tailleHaut, objetBonus.Css.tailleBas, objetBonus.Css.tailleGauche, objetBonus.Css.tailleDroite, objetBonus.Css.collision);
     
-    collisionJquery = new CollisionBonus(placementTopDuBonusJquery, placementLeftDuBonusJquery, objetBonus.Jquery.bonusJquery, objetBonus.Jquery.bonusSourceJquery, objetBonus.Jquery.competenceJquery, objetBonus.Jquery.tailleHaut, objetBonus.Jquery.tailleBas, objetBonus.Jquery.tailleGauche, objetBonus.Jquery.tailleDroite);
+    collisionJquery = new CollisionBonus(placementTopDuBonusJquery, placementLeftDuBonusJquery, objetBonus.Jquery.bonusJquery, objetBonus.Jquery.bonusSourceJquery, objetBonus.Jquery.competenceJquery, objetBonus.Jquery.tailleHaut, objetBonus.Jquery.tailleBas, objetBonus.Jquery.tailleGauche, objetBonus.Jquery.tailleDroite, objetBonus.Jquery.collision);
     
-    collisionJavascript = new CollisionBonus(placementTopDuBonusJavascript, placementLeftDuBonusJavascript, objetBonus.Javascript.bonusJavascript, objetBonus.Javascript.bonusSourceJavascript, objetBonus.Javascript.competenceJavascript, objetBonus.Javascript.tailleHaut, objetBonus.Javascript.tailleBas, objetBonus.Javascript.tailleGauche, objetBonus.Javascript.tailleDroite);
+    collisionJavascript = new CollisionBonus(placementTopDuBonusJavascript, placementLeftDuBonusJavascript, objetBonus.Javascript.bonusJavascript, objetBonus.Javascript.bonusSourceJavascript, objetBonus.Javascript.competenceJavascript, objetBonus.Javascript.tailleHaut, objetBonus.Javascript.tailleBas, objetBonus.Javascript.tailleGauche, objetBonus.Javascript.tailleDroite, objetBonus.Javascript.collision);
     
-    collisionPhp = new CollisionBonus(placementTopDuBonusPhp, placementLeftDuBonusPhp, objetBonus.Php.bonusPhp, objetBonus.Php.bonusSourcePhp, objetBonus.Php.competencePhp, objetBonus.Php.tailleHaut, objetBonus.Php.tailleBas, objetBonus.Php.tailleGauche, objetBonus.Php.tailleDroite);
+    collisionPhp = new CollisionBonus(placementTopDuBonusPhp, placementLeftDuBonusPhp, objetBonus.Php.bonusPhp, objetBonus.Php.bonusSourcePhp, objetBonus.Php.competencePhp, objetBonus.Php.tailleHaut, objetBonus.Php.tailleBas, objetBonus.Php.tailleGauche, objetBonus.Php.tailleDroite, objetBonus.Php.collision);
 
     
 
 }
 var dessineBonus = function(){
+    if(collisionHtml.collision == true && collisionCss.collision == true && collisionJquery.collision == true && collisionJavascript.collision == true && collisionPhp.collision == true){
+        objetBonus.ToutLesBonusToucher = true;
+
+    }
+
     //recupere la position du personnage
     pixelLeftPerso = personnage.pixelLeft;
     pixelTopPerso = personnage.pixelTop;
@@ -175,7 +193,7 @@ var dessineBonus = function(){
 
 
 
-    var CollisionBonus = function(placementTop, placementLeft, monBonus, monBonusSource, maCompetence, haut, bas, gauche, droite){
+    var CollisionBonus = function(placementTop, placementLeft, monBonus, monBonusSource, maCompetence, haut, bas, gauche, droite, collisionActive){
         this.positionTop = placementTop;
         this.left = placementLeft;
         this.tailleHaut = haut;
@@ -185,6 +203,7 @@ var dessineBonus = function(){
         this.bonus = monBonus;
         this.bonusSource = monBonusSource;
         this.competence = maCompetence;
+        this.collision = collisionActive;
         this.funcCollisionBonus = function(){
             if(this.bonus == 'html'){
                 ///////////////////////COLLISION BONUS HTML///////////////////////////
@@ -200,6 +219,8 @@ var dessineBonus = function(){
                     //recupere et affiche la div competence grace a son ID                    
                     var divCompetence = document.getElementById("competence");
                     divCompetence.style.display = 'block';
+
+                    this.collision = true;
             
                 }
 
@@ -217,6 +238,9 @@ var dessineBonus = function(){
                     //recupere et affiche la div competence grace a son ID                    
                     var divCompetence = document.getElementById("competence");
                     divCompetence.style.display = 'block';
+
+                    this.collision = true;
+
                  }
             }
 

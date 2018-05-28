@@ -303,9 +303,8 @@ var toucheClavier = function(){
                             certification.style.display = "block";
                             
                         }
-
-                        //si tout les ennemis on été tuer
-                        if(birdCollision.bird == false && bird2Collision.bird == false && bird3Collision.bird == false){
+                        //si tout les ennemis on été tuer et toutes les compétences on été recuperer
+                        if(birdCollision.bird == false && bird2Collision.bird == false && bird3Collision.bird == false && collisionHtml.collision == true && collisionCss.collision == true && collisionJquery.collision == true && collisionJavascript.collision == true && collisionPhp.collision == true){
                             //si le boss est tuer
                             if(birdBossCollision.bird == false){
                                 //arrete les points

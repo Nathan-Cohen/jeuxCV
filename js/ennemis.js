@@ -113,14 +113,6 @@ var ennemisIniatialisation = function(){
     apparitionTopEnnemiBoss = boss.entierAleatoire(40, 351);
     
     CompteurAnimationLose = 0;
-    // tempApparition = 150;
-    // apparitionTopEnnemi = 100;
-
-    // tempApparitionBird2 = 100;
-    // apparitionTopEnnemiBird2 = 100;
-
-    // tempApparitionBird3 = 100;
-    // apparitionTopEnnemiBird3 = 100;
 
     tempApparition = objetBird.entierAleatoire(70, 101);
     apparitionTopEnnemi = objetBird.entierAleatoire(40, 351);
@@ -197,6 +189,7 @@ var dessinEnnemi = function(){
         ColisionBird(apparitionTopEnnemiBird2, personnage.pixelLeft, bird2.anime, objetBird2.tailleHautBird2, objetBird2.tailleBasBird2, objetBird2.tailleDroiteBird2, objetBird2.tailleGaucheBird2);
         //execute la function d'animation a chaque passage de dessinEnnemi dans le setInterval 
         bird2.funcAnimation();
+        // console.log(bird2);
 
     }
     
@@ -214,6 +207,8 @@ var dessinEnnemi = function(){
     ColisionBird(apparitionTopEnnemiBird3, personnage.pixelLeft, bird3.anime, objetBird3.tailleHautBird3, objetBird3.tailleBasBird3, objetBird3.tailleDroiteBird3, objetBird3.tailleGaucheBird3);
     //execute la function d'animation a chaque passage de dessinEnnemi dans le setInterval 
     bird3.funcAnimation();
+    // console.log(bird3);
+    
 
     }
 
@@ -253,12 +248,12 @@ var animationCountDown = function(){
 
                         ////////////////ANIMATION DU SPRITE//////////////
 var ConstruireAnimationBird = function(montempApparition, monanimationEnnemiHorizontal, monAnimationEnnemiAile, imgbird, imgbirdailebas, source, vitesse){
+    this.anime = monanimationEnnemiHorizontal;
+    this.aile = monAnimationEnnemiAile;
+    this.temp = montempApparition;
     this.img = imgbird;
     this.imgailebas = imgbirdailebas;
     this.imgsource = source;
-    this.temp = montempApparition;
-    this.anime = monanimationEnnemiHorizontal;
-    this.aile = monAnimationEnnemiAile;
     this.vitesse = vitesse;
     this.funcAnimation = function(){
         // console.log(this.anime);
@@ -376,7 +371,7 @@ var ColisionBranche = function(){
                         lose.style.display = "block";
                         //animation pour l'affichage de l'image lose
                         if(CompteurAnimationLose < 10){
-                            CompteurAnimationLose = CompteurAnimationLose + 0.05;
+                            CompteurAnimationLose = CompteurAnimationLose + 0.10;
                             lose.style.opacity = CompteurAnimationLose;
                         }
                         //affiche le boutton restart
@@ -427,7 +422,7 @@ function ColisionBird (apparitionTopEnnemi, pixelLeft, animationEnnemiHorizontal
         lose.style.display = "block";
         //animation pour l'affichage de l'image lose
         if(CompteurAnimationLose < 10){
-            CompteurAnimationLose = CompteurAnimationLose + 0.05;
+            CompteurAnimationLose = CompteurAnimationLose + 0.10;
             lose.style.opacity = CompteurAnimationLose;
         }
         //affiche le boutton restart
