@@ -2,6 +2,7 @@ body{
     font-family: calibri;
     background-image: url(image/fondjungle.jpg);    
     /* background-size: cover;     */
+    margin: 0;
 }
 
 #start{
@@ -91,7 +92,7 @@ h2{
     background-image: url(image/bois.jpg);
     box-shadow: inset 0px 0px 20px 2px black;
     background-size: contain;
-    width: 100%;
+    width: 1250px;
     height: 300px;
     display: none;
 }
@@ -203,7 +204,7 @@ h2{
     background-image: url(image/bois.jpg);
     box-shadow: inset 0px 0px 20px 2px black;
     background-size: contain;
-    width: 100%;
+    width: 1250px;
     margin-top: 10px;
     display: none;
 }
@@ -238,7 +239,7 @@ h2{
     background-image: url(image/bois.jpg);
     box-shadow: inset 0px 0px 20px 2px black;
     background-size: contain;
-    width: 100%;
+    width: 1250px;
     margin-top: 10px;
     display: none;
 }
