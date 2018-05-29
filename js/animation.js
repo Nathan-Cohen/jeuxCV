@@ -32,7 +32,9 @@ window.addEventListener('load', function(){
         tailleEcran = window.innerWidth
     }
     console.log(tailleEcran);
-    presentation.style.width = tailleEcran + 'px';
+    // presentation.style.width = tailleEcran + 'px';
+    presentation.style.width = window.innerWidth + 'px';
+
 
     jouer.addEventListener('click', function(){
         start.style.display = "none";
