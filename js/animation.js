@@ -3,19 +3,22 @@ window.addEventListener('load', function(){
     var jouer = document.getElementById('jouer');
     var canvas = document.getElementById("canvas");
     var fond = document.getElementById("fond");
+    var presentation = document.getElementById("presentation");
     if(window.innerWidth < 2000){
-        tailleEcran = window.innerWidth - 1000;
+        tailleEcran = window.innerWidth - 1050;
         canvas.width = tailleEcran;
         fond.width = tailleEcran;
         start.width = tailleEcran; 
+        presentation.width = tailleEcran; 
         console.log('grand');        
-        console.log(window.innerWidth);         
+        console.log(fond.width);         
     
     }else if(window.innerWidth < 1300){
         tailleEcran = window.innerWidth - 550;
         canvas.width = tailleEcran; 
         fond.width = tailleEcran; 
         start.width = tailleEcran; 
+        presentation.width = tailleEcran;         
         console.log('moyen');
         console.log(window.innerWidth);
         
@@ -24,6 +27,7 @@ window.addEventListener('load', function(){
          canvas.width = tailleEcran;
          fond.width = tailleEcran;
          start.width = tailleEcran;
+        presentation.width = tailleEcran;          
          console.log('petit');         
          console.log(window.innerWidth);         
                    
