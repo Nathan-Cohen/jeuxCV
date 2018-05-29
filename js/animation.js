@@ -41,7 +41,7 @@ if(window.innerWidth < 1281){
     canvas.width = window.innerWidth - 550;
 
 }else if(window.innerWidth < 1921){
-    canvas.width = window.innerWidth - 1100;
+    canvas.width = window.innerWidth - 900;
 }
 console.log(window.innerWidth);
 
