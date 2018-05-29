@@ -3,13 +3,13 @@ window.addEventListener('load', function(){
     var jouer = document.getElementById('jouer');
     var canvas = document.getElementById("canvas");
     var fond = document.getElementById("fond");
-    if(window.innerWidth > 1279){
+    if(1200 < window.innerWidth < 1300){
         tailleEcran = window.innerWidth - 550;
          canvas.width = tailleEcran; 
          fond.width = tailleEcran; 
          start.width = tailleEcran; 
     
-    }else if(window.innerWidth > 1919){
+    }else if(1919 < window.innerWidth < 2000){
         tailleEcran = window.innerWidth - 2100;
         canvas.width = tailleEcran;
         fond.width = tailleEcran;
