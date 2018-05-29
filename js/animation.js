@@ -1,18 +1,33 @@
 window.addEventListener('load', function(){
     var start = document.getElementById('start');
     var jouer = document.getElementById('jouer');
-    canvas = document.getElementById("canvas");
-        if(window.innerWidth < 1281){
-            tailleEcran = window.innerWidth - 550;
-             canvas.width = tailleEcran; 
+    var canvas = document.getElementById("canvas");
+    var fond = document.getElementById("fond");
+    if(window.innerWidth > 1279){
+        tailleEcran = window.innerWidth - 550;
+         canvas.width = tailleEcran; 
+         fond.width = tailleEcran; 
+         start.width = tailleEcran; 
+    
+    }else if(window.innerWidth > 1919){
+        tailleEcran = window.innerWidth - 1100;
+        canvas.width = tailleEcran;
+        fond.width = tailleEcran;
+        start.width = tailleEcran; 
         
-        }else if(window.innerWidth > 1919){
-            tailleEcran = window.innerWidth - 1100;
-            canvas.width = tailleEcran;
-        }else{
-            tailleEcran = 700;
-             canvas.width = tailleEcran;
-        }
+    }else if (window.innerWidth < 500){
+        tailleEcran = window.innerWidth;
+         canvas.width = tailleEcran;
+         fond.width = tailleEcran;
+         start.width = tailleEcran;
+                   
+    }else{
+        tailleEcran = 700;
+         canvas.width = tailleEcran;
+         fond.width = tailleEcran;
+         start.width = tailleEcran; 
+         
+    }
     jouer.addEventListener('click', function(){
         start.style.display = "none";
 
