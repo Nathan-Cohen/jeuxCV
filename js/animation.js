@@ -9,6 +9,7 @@ window.addEventListener('load', function(){
          fond.width = tailleEcran; 
          start.width = tailleEcran; 
          console.log('moyen');
+         console.log(window.innerWidth);
     
     }else if(1900 < window.innerWidth < 2000){
         tailleEcran = window.innerWidth - 2100;
@@ -16,6 +17,7 @@ window.addEventListener('load', function(){
         fond.width = tailleEcran;
         start.width = tailleEcran; 
         console.log('grand');        
+        console.log(window.innerWidth);        
         
     }else if (window.innerWidth < 500){
         tailleEcran = window.innerWidth;
@@ -23,6 +25,7 @@ window.addEventListener('load', function(){
          fond.width = tailleEcran;
          start.width = tailleEcran;
          console.log('petit');         
+         console.log(window.innerWidth);         
                    
     }
     jouer.addEventListener('click', function(){
