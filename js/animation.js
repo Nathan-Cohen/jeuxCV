@@ -8,18 +8,21 @@ window.addEventListener('load', function(){
          canvas.width = tailleEcran; 
          fond.width = tailleEcran; 
          start.width = tailleEcran; 
+         console.log('moyen');
     
     }else if(1900 < window.innerWidth < 2000){
         tailleEcran = window.innerWidth - 2100;
         canvas.width = tailleEcran;
         fond.width = tailleEcran;
         start.width = tailleEcran; 
+        console.log('grand');        
         
     }else if (window.innerWidth < 500){
         tailleEcran = window.innerWidth;
          canvas.width = tailleEcran;
          fond.width = tailleEcran;
          start.width = tailleEcran;
+         console.log('petit');         
                    
     }
     jouer.addEventListener('click', function(){
