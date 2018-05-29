@@ -25,6 +25,17 @@ window.addEventListener('load', function(){
         dessineBonus();
         // window.setInterval(dessineBonus, 25);
 
+        canvas = document.getElementById("canvas");
+        if(window.innerWidth < 1281){
+            canvas.width = window.innerWidth - 550;
+        
+        }else if(window.innerWidth > 1919){
+            canvas.width = window.innerWidth - 900;
+            objetBird.animationEnnemiHorizontalBird = 5000;
+            objetBird2.animationEnnemiHorizontalBird2 =5000;
+            objetBird3.animationEnnemiHorizontalBird3 = 5000;
+        }
+        console.log(window.innerWidth);
     });  
     
     
@@ -36,17 +47,6 @@ location.reload();
 
 });
 
-canvas = document.getElementById("canvas");
-if(window.innerWidth < 1281){
-    canvas.width = window.innerWidth - 550;
-
-}else if(window.innerWidth > 1919){
-    canvas.width = window.innerWidth - 900;
-    objetBird.animationEnnemiHorizontalBird = 5000;
-    objetBird2.animationEnnemiHorizontalBird2 =5000;
-    objetBird3.animationEnnemiHorizontalBird3 = 5000;
-}
-console.log(window.innerWidth);
 
 
 
