@@ -16,9 +16,7 @@ var bonusInitialisation = function(){
     imgPhp = new Image();
     imgPhp.src = "image/php.png";
     
-    objetBonus = {
-        ToutLesBonusToucher: false,
-        
+    objetBonus = {        
         Html: {
             bonusHtml: 'html',
             bonusSourceHtml: imgHtml,
@@ -113,11 +111,6 @@ var bonusInitialisation = function(){
 
 }
 var dessineBonus = function(){
-    if(collisionHtml.collision == true && collisionCss.collision == true && collisionJquery.collision == true && collisionJavascript.collision == true && collisionPhp.collision == true){
-        objetBonus.ToutLesBonusToucher = true;
-
-    }
-
     //recupere la position du personnage
     pixelLeftPerso = personnage.pixelLeft;
     pixelTopPerso = personnage.pixelTop;

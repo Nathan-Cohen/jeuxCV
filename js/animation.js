@@ -36,6 +36,9 @@ location.reload();
 
 });
 
+canvas = document.getElementById("canvas");
+  canvas.width = window.innerWidth - 550;
+
 
 
 

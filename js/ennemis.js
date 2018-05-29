@@ -96,6 +96,7 @@ var ennemisIniatialisation = function(){
         animationEnnemiHorizontalBoss: 2000,
         animationEnnemiAileBoss: 0,
         tirDansBirdBoss: true,                        
+        tirDeuxDansBirdBoss: 500,                        
         active: false,
         imgBoss: "image/flappyDragon/frame-1.png",
         imgBossAileBas: "image/flappyDragon/frame-3.png",
