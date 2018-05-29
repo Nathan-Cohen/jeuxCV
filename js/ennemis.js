@@ -277,7 +277,7 @@ if(this.temp < 0){
     //si l'animationEnnemi est inferieur a -54 (pour disparaitre de l'ecran) on ajoute un nouveau temp d'apparition au prochain oiseau ennemi et on remet l'animation a droite (750px)
     if( this.anime <-54){
         this.temp = objetBird.entierAleatoire(251, 600);
-         this.anime = 750;            
+         this.anime = tailleEcran;            
     }
 
     }
