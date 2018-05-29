@@ -9,8 +9,10 @@ window.addEventListener('load', function(){
         }else if(window.innerWidth > 1919){
             tailleEcran = window.innerWidth - 900;
             canvas.width = tailleEcran;
+        }else{
+            tailleEcran = 700;
+             canvas.width = tailleEcran;
         }
-        console.log(window.innerWidth);
     jouer.addEventListener('click', function(){
         start.style.display = "none";
 

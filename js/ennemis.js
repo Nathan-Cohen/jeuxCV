@@ -93,7 +93,7 @@ var ennemisIniatialisation = function(){
         tailleDroiteBirdBoss: 90,
         tailleWidth: 1000,
         tailleHeight: 1000,
-        animationEnnemiHorizontalBoss: 2000,
+        animationEnnemiHorizontalBoss: tailleEcran,
         animationEnnemiAileBoss: 0,
         tirDansBirdBoss: true,                        
         tirDeuxDansBirdBoss: 500,                        
@@ -325,7 +325,7 @@ var construireAnimationCorbeau = function(montempApparition, monanimationEnnemiH
                 //si l'animationEnnemi est inferieur a -54 (pour disparaitre de l'ecran) on ajoute un nouveau temp d'apparition au prochain oiseau ennemi et on remet l'animation au droite (750px)
                 if(this.pxHorizontal <-54){
                     this.temp = objetBird.entierAleatoire(251, 600);
-                    this.pxHorizontal = 750;            
+                    this.pxHorizontal = tailleEcran;            
                 }
         }
 
