@@ -37,7 +37,11 @@ location.reload();
 });
 
 canvas = document.getElementById("canvas");
-  canvas.width = window.innerWidth - 550;
+if(window.innerWidth < 1281){
+    canvas.width = window.innerWidth - 550;
+
+}
+console.log(window.innerWidth);
 
 
 
