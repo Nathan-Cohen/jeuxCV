@@ -7,18 +7,18 @@ window.addEventListener('load', function(){
     if(window.innerWidth > 1900){
         tailleEcran = window.innerWidth - 1050;
         canvas.width = tailleEcran;
-        fond.width = canvas.width;
-        start.width = canvas.width; 
-        presentation.width = canvas.width; 
+        fond.width = 870;
+        start.width = 870; 
+        presentation.width = 870; 
         console.log('grand');        
         console.log(window.innerWidth);       
     
     }else if(window.innerWidth > 1200){
         tailleEcran = window.innerWidth - 550;
         canvas.width = tailleEcran; 
-        fond.width = canvas.width; 
-        start.width = canvas.width; 
-        presentation.width = canvas.width;         
+        fond.width = 730; 
+        start.width = 730; 
+        presentation.width = 730;         
         console.log('moyen');
         console.log(window.innerWidth);
         
