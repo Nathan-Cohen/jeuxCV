@@ -42,9 +42,9 @@ if(window.innerWidth < 1281){
 
 }else if(window.innerWidth > 1919){
     canvas.width = window.innerWidth - 900;
-    objetBird.animationEnnemiHorizontalBird = 1000;
-    objetBird2.animationEnnemiHorizontalBird2 = 1000;
-    objetBird3.animationEnnemiHorizontalBird3 = 1000;
+    objetBird.animationEnnemiHorizontalBird = 5000;
+    objetBird2.animationEnnemiHorizontalBird2 =5000;
+    objetBird3.animationEnnemiHorizontalBird3 = 5000;
 }
 console.log(window.innerWidth);
 
