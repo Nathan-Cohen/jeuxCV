@@ -3,21 +3,21 @@ window.addEventListener('load', function(){
     var jouer = document.getElementById('jouer');
     var canvas = document.getElementById("canvas");
     var fond = document.getElementById("fond");
-    if(1200 < window.innerWidth < 1300){
-        tailleEcran = window.innerWidth - 550;
-         canvas.width = tailleEcran; 
-         fond.width = tailleEcran; 
-         start.width = tailleEcran; 
-         console.log('moyen');
-         console.log(window.innerWidth);
-    
-    }else if(1900 < window.innerWidth < 2000){
+    if(window.innerWidth < 2000){
         tailleEcran = window.innerWidth - 2100;
         canvas.width = tailleEcran;
         fond.width = tailleEcran;
         start.width = tailleEcran; 
         console.log('grand');        
-        console.log(window.innerWidth);        
+        console.log(window.innerWidth);         
+    
+    }else if(window.innerWidth < 1300){
+        tailleEcran = window.innerWidth - 550;
+        canvas.width = tailleEcran; 
+        fond.width = tailleEcran; 
+        start.width = tailleEcran; 
+        console.log('moyen');
+        console.log(window.innerWidth);
         
     }else if (window.innerWidth < 500){
         tailleEcran = window.innerWidth;
