@@ -9,7 +9,7 @@ window.addEventListener('load', function(){
          fond.width = tailleEcran; 
          start.width = tailleEcran; 
     
-    }else if(1919 < window.innerWidth < 2000){
+    }else if(1900 < window.innerWidth < 2000){
         tailleEcran = window.innerWidth - 2100;
         canvas.width = tailleEcran;
         fond.width = tailleEcran;
@@ -21,12 +21,6 @@ window.addEventListener('load', function(){
          fond.width = tailleEcran;
          start.width = tailleEcran;
                    
-    }else{
-        tailleEcran = 700;
-         canvas.width = tailleEcran;
-         fond.width = tailleEcran;
-         start.width = tailleEcran; 
-         
     }
     jouer.addEventListener('click', function(){
         start.style.display = "none";
