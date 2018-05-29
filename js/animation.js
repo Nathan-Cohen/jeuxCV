@@ -4,7 +4,7 @@ window.addEventListener('load', function(){
     var canvas = document.getElementById("canvas");
     var fond = document.getElementById("fond");
     if(window.innerWidth < 2000){
-        tailleEcran = window.innerWidth - 2100;
+        tailleEcran = window.innerWidth - 1100;
         canvas.width = tailleEcran;
         fond.width = tailleEcran;
         start.width = tailleEcran; 
