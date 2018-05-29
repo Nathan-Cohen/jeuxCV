@@ -35,7 +35,7 @@ var ennemisIniatialisation = function(){
         croixBird : 'croixBird',
         tirDansBird: true,
         compteurExplosion: 0,
-        animationEnnemiHorizontal: 700,
+        animationEnnemiHorizontal: canvas.width,
         compteurAnimationEnnemiBouche: 0,
         positionLeftInitiale: 100,
         //function aleatoire pour definir le temp d'apparition d'un oiseau ennemi
