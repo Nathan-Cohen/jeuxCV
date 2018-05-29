@@ -1,6 +1,16 @@
 window.addEventListener('load', function(){
     var start = document.getElementById('start');
     var jouer = document.getElementById('jouer');
+    canvas = document.getElementById("canvas");
+        if(window.innerWidth < 1281){
+            tailleEcran = window.innerWidth - 550;
+             canvas.width = tailleEcran; 
+        
+        }else if(window.innerWidth > 1919){
+            tailleEcran = window.innerWidth - 900;
+            canvas.width = tailleEcran;
+        }
+        console.log(window.innerWidth);
     jouer.addEventListener('click', function(){
         start.style.display = "none";
 
@@ -25,14 +35,9 @@ window.addEventListener('load', function(){
         dessineBonus();
         // window.setInterval(dessineBonus, 25);
 
-        canvas = document.getElementById("canvas");
-        if(window.innerWidth < 1281){
-            canvas.width = window.innerWidth - 550;
         
-        }else if(window.innerWidth > 1919){
-            canvas.width = window.innerWidth - 900;
-        }
-        console.log(window.innerWidth);
+
+
     });  
     
     
@@ -43,7 +48,6 @@ location.reload();
 
 
 });
-
 
 
 

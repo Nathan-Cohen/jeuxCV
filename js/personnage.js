@@ -112,7 +112,7 @@ var toucheClavier = function(){
                             personnage.positionSpriteAileBas = 600;
                         }
                         //si la position Left est plus petit que le taille du canvas moins la taille de l'image alors on peut avancer 
-                        if(personnage.pixelLeft < canvas.width - 90){
+                        if(personnage.pixelLeft < tailleEcran - 90){
                             personnage.pixelLeft += 3;
                             
                         }else{
@@ -204,7 +204,10 @@ var toucheClavier = function(){
                 break;
                 
                 case 32:
-                event.preventDefault();                          
+                event.preventDefault();           
+                console.log(personnage.tirPressed);
+                console.log(pixelLeftTir);
+                               
                 if(personnage.animationTirEnCour === false){
                     
                     //function de collision du tir 
@@ -346,7 +349,7 @@ var toucheClavier = function(){
                         }
                         
                         //si le tir atteint 350 pixel de gauche on termine et on remet les valeurs a 0
-                        if(pixelLeftTir === 350){
+                        if(pixelLeftTir - personnage.pixelLeft > 200){
                             pixelLeftTir = personnage.pixelLeft;
                             pixelTopTir = personnage.pixelTop;
                             window.clearInterval(interval);
