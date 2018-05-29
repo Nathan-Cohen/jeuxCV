@@ -7,7 +7,7 @@ window.addEventListener('load', function(){
              canvas.width = tailleEcran; 
         
         }else if(window.innerWidth > 1919){
-            tailleEcran = window.innerWidth - 700;
+            tailleEcran = window.innerWidth - 1100;
             canvas.width = tailleEcran;
         }else{
             tailleEcran = 700;
