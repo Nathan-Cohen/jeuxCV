@@ -40,6 +40,8 @@ canvas = document.getElementById("canvas");
 if(window.innerWidth < 1281){
     canvas.width = window.innerWidth - 550;
 
+}else if(window.innerWidth < 1921){
+    canvas.width = window.innerWidth - 1250;
 }
 console.log(window.innerWidth);
 
