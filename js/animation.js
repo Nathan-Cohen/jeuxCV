@@ -4,33 +4,35 @@ window.addEventListener('load', function(){
     var canvas = document.getElementById("canvas");
     var fond = document.getElementById("fond");
     var presentation = document.getElementById("presentation");
-    if(window.innerWidth < 2000){
+    if(window.innerWidth > 1900){
         tailleEcran = window.innerWidth - 1050;
         canvas.width = tailleEcran;
-        fond.width = tailleEcran;
-        start.width = tailleEcran; 
-        presentation.width = tailleEcran; 
+        fond.width = canvas.width;
+        start.width = canvas.width; 
+        presentation.width = canvas.width; 
         console.log('grand');        
-        console.log(fond.width);         
+        console.log(window.innerWidth);       
     
-    }else if(window.innerWidth < 1300){
+    }else if(window.innerWidth > 1200){
         tailleEcran = window.innerWidth - 550;
         canvas.width = tailleEcran; 
-        fond.width = tailleEcran; 
-        start.width = tailleEcran; 
-        presentation.width = tailleEcran;         
+        fond.width = canvas.width; 
+        start.width = canvas.width; 
+        presentation.width = canvas.width;         
         console.log('moyen');
         console.log(window.innerWidth);
         
     }else if (window.innerWidth < 500){
         tailleEcran = window.innerWidth;
          canvas.width = tailleEcran;
-         fond.width = tailleEcran;
-         start.width = tailleEcran;
-        presentation.width = tailleEcran;          
+         fond.width = canvas.width;
+         start.width = canvas.width;
+        presentation.width = canvas.width;          
          console.log('petit');         
          console.log(window.innerWidth);         
                    
+    }else{
+        tailleEcran = window.innerWidth
     }
     jouer.addEventListener('click', function(){
         start.style.display = "none";
