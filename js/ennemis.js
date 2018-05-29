@@ -93,7 +93,7 @@ var ennemisIniatialisation = function(){
         tailleDroiteBirdBoss: 90,
         tailleWidth: 1000,
         tailleHeight: 1000,
-        animationEnnemiHorizontalBoss: tailleEcran,
+        animationEnnemiHorizontalBoss: tailleEcran + 2000,
         animationEnnemiAileBoss: 0,
         tirDansBirdBoss: true,                        
         tirDeuxDansBirdBoss: 500,                        
