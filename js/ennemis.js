@@ -93,7 +93,7 @@ var ennemisIniatialisation = function(){
         tailleDroiteBirdBoss: 90,
         tailleWidth: 1000,
         tailleHeight: 1000,
-        animationEnnemiHorizontalBoss: tailleEcran + 2000,
+        animationEnnemiHorizontalBoss: tailleEcran,
         animationEnnemiAileBoss: 0,
         tirDansBirdBoss: true,                        
         tirDeuxDansBirdBoss: 500,                        
@@ -124,6 +124,8 @@ var ennemisIniatialisation = function(){
     tempApparitionBird3 = objetBird3.entierAleatoire(101, 401);
     apparitionTopEnnemiBird3 = objetBird3.entierAleatoire(10, 401);
 
+    //recupere la balise audio de la collision
+    sonCollision = document.getElementById("son-collision");    
 
 
 
@@ -340,8 +342,11 @@ var ColisionBranche = function(){
             si le top est superieur a 100px et la position de la branche moin la taille de la branche moin le nombre de marge a gauche de l'oiseau doit etre inferieur ou egal a 10 et la position initiale est plus grandre que 100 OU si le top est superieur a 100px et la position de la branche moin la taille de la branche moin le nombre de marge a gauche de l'oiseau est egal a 0 et la position initiale est plus petite que 100
             */      
            
+           
                 if(personnage.pixelTop > objetBranche.tailleHautBranche && (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft <= 10 && objetBranche.tailleDroiteBranche < (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft && positionInitialedeux > 100 || personnage.pixelTop > objetBranche.tailleHautBranche && (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft <= 10 && objetBranche.tailleDroiteBranche < (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft && positionInitialedeux < 100){
-                    // console.log("boom");
+                    // son
+                    sonCollision.play();
+                    
                     objetBird.compteurExplosion++;
                     //stop le defilement et les points
                     vitesse = 0;
@@ -367,6 +372,7 @@ var ColisionBranche = function(){
 
                     //attent 1000 avant d'afficher "you lose"
                     setTimeout(function(){
+                        sonCollision = 0;
                         //affiche la div lose
                         var lose = document.getElementById('lose');
                         lose.style.display = "block";
@@ -391,7 +397,10 @@ var ColisionBranche = function(){
 function ColisionBird (apparitionTopEnnemi, pixelLeft, animationEnnemiHorizontal, tailleHaut, tailleBas, tailleDroite, tailleGauche){
              //top minimum et maximum pour la collision et la position de l'animation est plus grande que la position (pixelLeft) du perso moins sa taille et la position de l'animation est plus petite que la position (pixelLeft) du perso pluss sa taille
     if (apparitionTopEnnemi - tailleHaut < personnage.pixelTop && apparitionTopEnnemi + tailleBas > personnage.pixelTop && animationEnnemiHorizontal > pixelLeft - tailleDroite && animationEnnemiHorizontal < pixelLeft + tailleGauche){
-    objetBird.compteurExplosion++;
+    // son
+    sonCollision.play();
+
+     objetBird.compteurExplosion++;
      tempApparition = "annule le compteur d'oiseau ennemie";
      tempApparitionBird2 = "annule le compteur d'oiseau ennemie";
      tempApparitionBird3 = "annule le compteur d'oiseau ennemie";
@@ -418,6 +427,7 @@ function ColisionBird (apparitionTopEnnemi, pixelLeft, animationEnnemiHorizontal
      window.clearInterval(fleche);
      //attent 1000 avant d'afficher "you lose"
      setTimeout(function(){
+        sonCollision = 0;
         //affiche la div lose
         var lose = document.getElementById('lose');
         lose.style.display = "block";

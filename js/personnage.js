@@ -97,11 +97,16 @@ var dessinPerso = function(){
 var toucheClavier = function(){
     window.addEventListener('keydown', function direction(event){
     var code = event.keyCode;
+    sonQuiAvance = document.getElementById("son-qui-avance");    
+    sonQuiTir = document.getElementById("son-qui-tir");    
             switch(code){
                 //droite
                 case 39:
                 event.preventDefault();
                 if(personnage.animationEnCour === false){
+                        //son
+                        sonQuiAvance.play();           
+
                         fleche = window.setInterval(function(){
                         //a chaque clique sur le touche droite on ajoute 1 au compteurRight si compteurRight est plus grand que 3 on le remet a 0 et on change la position du sprite pour afficher l'image avec des ailes en haut
                         personnage.compteurRight++;
@@ -126,6 +131,9 @@ var toucheClavier = function(){
                 case 37:
                 event.preventDefault();
                     if(personnage.animationEnCour === false){
+                        //son
+                        sonQuiAvance.play(); 
+
                         fleche = window.setInterval(function(){
                             //a chaque clique sur le touche droite on ajoute 1 au personnage.compteurLeft si personnage.compteurLeft est plus grand que 3 on le remet a 0 et on change la position du sprite pour afficher l'image avec des ailes en haut
                             personnage.compteurLeft++;
@@ -150,7 +158,9 @@ var toucheClavier = function(){
                 case 38:
                 event.preventDefault();
                     if(personnage.animationEnCour === false){
-                        
+                        //son
+                        sonQuiAvance.play(); 
+
                         fleche = window.setInterval(function(){
                             //a chaque clique sur le touche droite on ajoute 1 au personnage.compteurTop si personnage.compteurTop est plus grand que 3 on le remet a 0 et on change la position du sprite pour afficher l'image avec des ailes en haut
                             personnage.compteurTop++;
@@ -176,6 +186,9 @@ var toucheClavier = function(){
                 case 40:
                 event.preventDefault();                
                     if(personnage.animationEnCour === false){
+                        //son
+                        sonQuiAvance.play(); 
+
                         fleche = window.setInterval(function(){
                             //a chaque clique sur le touche droite on ajoute 1 au personnage.compteurBottom si personnage.compteurBottom est plus grand que 3 on le remet a 0 et on change la position du sprite pour afficher l'image avec des ailes en haut
                             personnage.compteurBottom++;
@@ -209,6 +222,8 @@ var toucheClavier = function(){
                 console.log(pixelLeftTir);
                                
                 if(personnage.animationTirEnCour === false){
+                    //son
+                    sonQuiTir.play();
                     
                     //function de collision du tir 
                     birdCollision = new ConstruitCollisionTir(apparitionTopEnnemi, bird.pxHorizontal, objetBird.tirDansBird, imgCollisionTir, objetBird.tailleHautBird, objetBird.tailleBasBird, objetBird.tailleDroiteBird, objetBird.tailleGaucheBird, objetBird.croixBird, compteurExplosionTir);
@@ -377,25 +392,30 @@ var toucheClavier = function(){
             case 39:
             window.clearInterval(fleche);
             personnage.animationEnCour = false;
+            sonQuiAvance.pause();
             break;
             //gauche
             case 37:
             window.clearInterval(fleche);
             personnage.animationEnCour = false;
+            sonQuiAvance.pause();
             break;
             //haut
             case 38:
             window.clearInterval(fleche);
             personnage.animationEnCour = false;
+            sonQuiAvance.pause();
             break;
             //bas
             case 40:
             window.clearInterval(fleche);
             personnage.animationEnCour = false;
+            sonQuiAvance.pause();
             break;
             //tir
             case 32:
             personnage.animationTirEnCour = false;
+            sonQuiAvance.pause();
             break;
         }
         
