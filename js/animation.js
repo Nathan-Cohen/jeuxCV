@@ -10,31 +10,23 @@ window.addEventListener('load', function(){
     if(window.innerWidth > 1900){
         tailleEcran = window.innerWidth - 1050;
         canvas.width = tailleEcran;
-        presentation.width = 870; 
-        console.log('grand');        
-        console.log(window.innerWidth);       
+        presentation.width = 870;      
     
     }else if(window.innerWidth > 1200){
         tailleEcran = window.innerWidth - 550;
         canvas.width = tailleEcran; 
-        presentation.width = 730;         
-        console.log('moyen');
-        console.log(window.innerWidth);
+        presentation.width = 730;
         
     }else if (window.innerWidth < 500){
         tailleEcran = window.innerWidth;
          canvas.width = tailleEcran;
-        presentation.width = canvas.width;          
-         console.log('petit');         
-         console.log(window.innerWidth);         
+        presentation.width = canvas.width;     
                    
     }else{
         tailleEcran = window.innerWidth
     }
-    console.log(tailleEcran);
     // presentation.style.width = tailleEcran + 'px';
     presentation.style.width = window.innerWidth + 'px';
-
 
     jouer.addEventListener('click', function(){
         start.style.display = "none";

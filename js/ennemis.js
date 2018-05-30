@@ -171,7 +171,7 @@ var dessinEnnemi = function(){
        ctx.shadowOffsetY = 1;
        ctx.shadowColor = '#FF0000';
        ctx.shadowBlur = 5;
-        ctx.drawImage(imgBird, objetBird.positionLeftInitiale, 0, 100, 100, bird.pxHorizontal, apparitionTopEnnemi, 130, 120);
+        ctx.drawImage(imgBird, objetBird.positionLeftInitiale, 0, 100, 80, bird.pxHorizontal, apparitionTopEnnemi, 130, 120);
         ctx.restore();
         ColisionBird(apparitionTopEnnemi, personnage.pixelLeft, bird.pxHorizontal, objetBird.tailleHautBird, objetBird.tailleBasBird, objetBird.tailleDroiteBird, objetBird.tailleGaucheBird);
         //execute la function d'animation a chaque passage de dessinEnnemi dans le setInterval      
@@ -187,7 +187,7 @@ var dessinEnnemi = function(){
        ctx.shadowOffsetY = 1;
        ctx.shadowColor = '#FF0000';
        ctx.shadowBlur = 5;
-        ctx.drawImage(imgBird2, objetBird2.positionLeftInitialeBird2, 0, 700, 700, bird2.anime, apparitionTopEnnemiBird2, 100, 100); 
+        ctx.drawImage(imgBird2, objetBird2.positionLeftInitialeBird2, 0, 600, 600, bird2.anime, apparitionTopEnnemiBird2, 100, 100); 
         ctx.restore();
         ColisionBird(apparitionTopEnnemiBird2, personnage.pixelLeft, bird2.anime, objetBird2.tailleHautBird2, objetBird2.tailleBasBird2, objetBird2.tailleDroiteBird2, objetBird2.tailleGaucheBird2);
         //execute la function d'animation a chaque passage de dessinEnnemi dans le setInterval 

@@ -218,8 +218,8 @@ var toucheClavier = function(){
                 
                 case 32:
                 event.preventDefault();           
-                console.log(personnage.tirPressed);
-                console.log(pixelLeftTir);
+                // console.log(personnage.tirPressed);
+                // console.log(pixelLeftTir);
                                
                 if(personnage.animationTirEnCour === false){
                     //son
@@ -321,7 +321,7 @@ var toucheClavier = function(){
                             certification.style.display = "block";
                             
                         }
-                        // console.log('base' + birdBossCollision.tirDeuxDansBird);
+                        console.log('base' + birdBossCollision.tirDeuxDansBird);
                         //si tout les ennemis on été tuer et toutes les compétences on été recuperer
                         if(birdCollision.bird == false && bird2Collision.bird == false && bird3Collision.bird == false){
                             //si le boss est tuer
@@ -440,10 +440,8 @@ var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteC
     this.funcCollisionEnnemis = function(){
     //collision bird
         if(this.top - this.tailleHaut <= pixelTopTir && this.top + this.tailleBas >= pixelTopTir && this.left >= pixelLeftTir - this.tailleDroite && this.left <= pixelLeftTir + this.tailleGauche + 20){
-        // console.log('boom');
-        // console.log(this.divBird);
             //met la valeur a false pour ne pas redessiner le tir si l'oiseau est toucher    
-        personnage.tirPressed = false;
+            personnage.tirPressed = false;
 
             //recupere et affiche l'image de la croix sur l'oiseau grace a son ID
             var progression = document.getElementById(this.divBird);
@@ -452,8 +450,8 @@ var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteC
             //met la valeur a false pour ne pas redessiner l'oiseau ennemie dans la page ennemis.js
             this.bird = false;
             //tir dans le boss
-            this.tirDeuxDansBird -= 1;
-            // console.log(this.tirDeuxDansBird);
+            this.tirDeuxDansBird--;
+            console.log(this.tirDeuxDansBird);
             
             //redefini la taille de pixel left pour la position de la collision
             positionHorizontal = this.left;
