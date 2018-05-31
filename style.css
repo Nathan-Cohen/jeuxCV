@@ -176,7 +176,7 @@ h2{
 }
 
 #win{
-    margin-top: -580px;
+    top: 0;
     margin-left: 270px;
     position: absolute;
     display: none;
@@ -275,7 +275,7 @@ h2{
   
   @keyframes animationBoss {
     from {
-      margin-left: -8%;
+      margin-left: -12%;
     }
 
     50%{
@@ -284,6 +284,6 @@ h2{
     }
   
     to {
-      margin-left: -8%;
+      margin-left: -12%;
     }
   }

@@ -144,7 +144,7 @@ var ennemisIniatialisation = function(){
        
     //bird Boss
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi    
-    birdBoss = new ConstruireAnimationBird(tempApparitionBoss, boss.animationEnnemiHorizontalBoss, boss.animationEnnemiAileBoss, boss.imgBoss, boss.imgBossAileBas, boss.sourceBoss, boss.vitesse);
+    birdBoss = new ConstruireAnimationBird(tempApparitionBoss, boss.animationEnnemiHorizontalBoss, boss.animationEnnemiAileBoss, boss.imgBoss, boss.imgBossAileBas, boss.sourceBoss, boss.vitesse, apparitionTopEnnemiBoss);
     
 }
 
@@ -218,9 +218,9 @@ var dessinEnnemi = function(){
 
     if(boss.active){
         if(boss.tirDansBirdBoss){
-            ctx.drawImage(imgBoss, 0, 0, boss.tailleWidth, boss.tailleHeight, birdBoss.anime, apparitionTopEnnemiBoss, 200, 200);
+            ctx.drawImage(imgBoss, 0, 0, boss.tailleWidth, boss.tailleHeight, birdBoss.anime, birdBoss.randomTopBoss, 200, 200);
             // vitesse = 3;
-                ColisionBird(apparitionTopEnnemiBoss, personnage.pixelLeft, birdBoss.anime, boss.tailleHautBirdBoss, boss.tailleBasBirdBoss, boss.tailleDroiteBirdBoss, boss.tailleGaucheBirdBoss);
+                ColisionBird(birdBoss.randomTopBoss, personnage.pixelLeft, birdBoss.anime, boss.tailleHautBirdBoss, boss.tailleBasBirdBoss, boss.tailleDroiteBirdBoss, boss.tailleGaucheBirdBoss);
                 birdBoss.funcAnimation();
             
         }
@@ -251,7 +251,7 @@ var animationCountDown = function(){
 
 
                         ////////////////ANIMATION DU SPRITE//////////////
-var ConstruireAnimationBird = function(montempApparition, monanimationEnnemiHorizontal, monAnimationEnnemiAile, imgbird, imgbirdailebas, source, vitesse){
+var ConstruireAnimationBird = function(montempApparition, monanimationEnnemiHorizontal, monAnimationEnnemiAile, imgbird, imgbirdailebas, source, vitesse, topBoss){
     this.anime = monanimationEnnemiHorizontal;
     this.aile = monAnimationEnnemiAile;
     this.temp = montempApparition;
@@ -259,9 +259,9 @@ var ConstruireAnimationBird = function(montempApparition, monanimationEnnemiHori
     this.imgailebas = imgbirdailebas;
     this.imgsource = source;
     this.vitesse = vitesse;
+    this.randomTopBoss = topBoss;
     this.funcAnimation = function(){
-        // console.log(this.anime);
-// bird2 
+// reduit le temp d'apparition
 this.temp--;
 //si le temp d'apparition est inferieur a 0 on affiche l'oiseau ennemis et on lui retire 6 a chaque passage pour le decaler ver la gauche
 if(this.temp < 0){
@@ -280,6 +280,7 @@ if(this.temp < 0){
     //si l'animationEnnemi est inferieur a -54 (pour disparaitre de l'ecran) on ajoute un nouveau temp d'apparition au prochain oiseau ennemi et on remet l'animation a droite (750px)
     if( this.anime <-54){
         this.temp = objetBird.entierAleatoire(251, 600);
+        this.randomTopBoss = boss.entierAleatoire(0, 351);
          this.anime = tailleEcran;            
     }
 

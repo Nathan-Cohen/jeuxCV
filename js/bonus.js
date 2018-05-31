@@ -82,7 +82,7 @@ var bonusInitialisation = function(){
     }
 
 
-    placementLeftDuBonusHtml = objetBonus.entierAleatoire(0, 100);
+    placementLeftDuBonusHtml = objetBonus.entierAleatoire(100, 100);
     placementTopDuBonusHtml = objetBonus.entierAleatoire(100, 300);
 
     placementLeftDuBonusCss = objetBonus.entierAleatoire(340, 450);

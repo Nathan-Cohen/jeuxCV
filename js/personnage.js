@@ -235,7 +235,7 @@ var toucheClavier = function(){
                     bird3Collision = new ConstruitCollisionTir(apparitionTopEnnemiBird3, bird3.anime, objetBird3.tirDansBird3, imgCollisionTir3, objetBird3.tailleHautBird3, objetBird3.tailleBasBird3, objetBird3.tailleDroiteBird3, objetBird3.tailleGaucheBird3, objetBird3.croixBird3, compteurExplosionTirBird3);
                     
                     //function de collision du tir 
-                    birdBossCollision = new ConstruitCollisionTir(apparitionTopEnnemiBoss, birdBoss.anime, boss.tirDansBirdBoss, imgCollisionTir4, boss.tailleHautBirdBoss, boss.tailleBasBirdBoss, boss.tailleDroiteBirdBoss, boss.tailleGaucheBirdBoss, objetBird3.croixBird3, compteurExplosionTirBirdBoss);
+                    birdBossCollision = new ConstruitCollisionTir(birdBoss.randomTopBoss, birdBoss.anime, boss.tirDansBirdBoss, imgCollisionTir4, boss.tailleHautBirdBoss, boss.tailleBasBirdBoss, boss.tailleDroiteBirdBoss, boss.tailleGaucheBirdBoss, objetBird3.croixBird3, compteurExplosionTirBirdBoss);
 
                     //redefini la taille de pixel top a chaque tir pour tirer horizontalement au perso
                     pixelTopTir = personnage.pixelTop;
@@ -361,7 +361,7 @@ var toucheClavier = function(){
                                 //met animationCountDownActive a false pour ne pas ré activer l'animation 3 2 1
                                 animationCountDownActive = false;
                                 //augmente la vitesse de defilement
-                                vitesse = 5;
+                                vitesse = 4;
                             }
                             
                         }
