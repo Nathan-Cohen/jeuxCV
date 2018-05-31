@@ -30,7 +30,7 @@ body{
 }
 
 #presentation{
-    height: 525px;
+    height: 100%;
     background-color: black;
     opacity: 0.8;
     position: absolute;
@@ -121,7 +121,7 @@ h2{
     position: relative;
     margin-top: 34%;
     min-width: 3%;
-    max-width: 57%;
+    max-width: 50%;
     margin-left: 16%;
 }
 

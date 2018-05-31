@@ -1,5 +1,3 @@
- 
-
 window.addEventListener('load', function(){
     var start = document.getElementById('start');
     var jouer = document.getElementById('jouer');
@@ -9,24 +7,22 @@ window.addEventListener('load', function(){
     
     if(window.innerWidth > 1900){
         tailleEcran = window.innerWidth - 1050;
-        canvas.width = tailleEcran;
-        presentation.width = 870;      
+        canvas.width = tailleEcran;    
     
     }else if(window.innerWidth > 1200){
         tailleEcran = window.innerWidth - 550;
-        canvas.width = tailleEcran; 
-        presentation.width = 730;
+        canvas.width = tailleEcran;              
         
     }else if (window.innerWidth < 500){
         tailleEcran = window.innerWidth;
-         canvas.width = tailleEcran;
-        presentation.width = canvas.width;     
+         canvas.width = tailleEcran;               
                    
     }else{
         tailleEcran = window.innerWidth
     }
     // presentation.style.width = tailleEcran + 'px';
     presentation.style.width = window.innerWidth + 'px';
+    presentation.style.height = window.innerHeight + 'px';
 
     jouer.addEventListener('click', function(){
         start.style.display = "none";

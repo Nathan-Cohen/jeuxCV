@@ -93,7 +93,7 @@ var ennemisIniatialisation = function(){
         tailleDroiteBirdBoss: 90,
         tailleWidth: 1000,
         tailleHeight: 1000,
-        animationEnnemiHorizontalBoss: tailleEcran,
+        animationEnnemiHorizontalBoss: tailleEcran + 2000,
         animationEnnemiAileBoss: 0,
         tirDansBirdBoss: true,                        
         tirDeuxDansBirdBoss: 500,                        
@@ -132,7 +132,7 @@ var ennemisIniatialisation = function(){
     //bird corbeau
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi    
     bird = new construireAnimationCorbeau(tempApparition, objetBird.animationEnnemiHorizontal, objetBird.compteurAnimationEnnemiBouche);
- 
+    
     //bird2 marron
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi
     bird2 = new ConstruireAnimationBird(tempApparitionBird2, objetBird2.animationEnnemiHorizontalBird2, objetBird2.animationEnnemiAileBird2, objetBird2.imgBird2, objetBird2.imgBird2AileBas, objetBird2.sourceBird2, objetBird2.vitesse);

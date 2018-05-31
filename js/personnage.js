@@ -321,7 +321,7 @@ var toucheClavier = function(){
                             certification.style.display = "block";
                             
                         }
-                        console.log('base' + birdBossCollision.tirDeuxDansBird);
+                        // console.log('base' + birdBossCollision.tirDeuxDansBird);
                         //si tout les ennemis on été tuer et toutes les compétences on été recuperer
                         if(birdCollision.bird == false && bird2Collision.bird == false && bird3Collision.bird == false){
                             //si le boss est tuer
@@ -451,7 +451,7 @@ var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteC
             this.bird = false;
             //tir dans le boss
             this.tirDeuxDansBird--;
-            console.log(this.tirDeuxDansBird);
+            // console.log(this.tirDeuxDansBird);
             
             //redefini la taille de pixel left pour la position de la collision
             positionHorizontal = this.left;
