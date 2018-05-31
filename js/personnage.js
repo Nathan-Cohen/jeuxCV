@@ -235,7 +235,7 @@ var toucheClavier = function(){
                     bird3Collision = new ConstruitCollisionTir(apparitionTopEnnemiBird3, bird3.anime, objetBird3.tirDansBird3, imgCollisionTir3, objetBird3.tailleHautBird3, objetBird3.tailleBasBird3, objetBird3.tailleDroiteBird3, objetBird3.tailleGaucheBird3, objetBird3.croixBird3, compteurExplosionTirBird3);
                     
                     //function de collision du tir 
-                    birdBossCollision = new ConstruitCollisionTir(apparitionTopEnnemiBoss, birdBoss.anime, boss.tirDansBirdBoss, imgCollisionTir4, boss.tailleHautBirdBoss, boss.tailleBasBirdBoss, boss.tailleDroiteBirdBoss, boss.tailleGaucheBirdBoss, objetBird3.croixBird3, compteurExplosionTirBirdBoss, boss.tirDeuxDansBirdBoss);
+                    birdBossCollision = new ConstruitCollisionTir(apparitionTopEnnemiBoss, birdBoss.anime, boss.tirDansBirdBoss, imgCollisionTir4, boss.tailleHautBirdBoss, boss.tailleBasBirdBoss, boss.tailleDroiteBirdBoss, boss.tailleGaucheBirdBoss, objetBird3.croixBird3, compteurExplosionTirBirdBoss);
 
                     //redefini la taille de pixel top a chaque tir pour tirer horizontalement au perso
                     pixelTopTir = personnage.pixelTop;
@@ -325,7 +325,7 @@ var toucheClavier = function(){
                         //si tout les ennemis on été tuer et toutes les compétences on été recuperer
                         if(birdCollision.bird == false && bird2Collision.bird == false && bird3Collision.bird == false){
                             //si le boss est tuer
-                            if(birdBossCollision.tirDeuxDansBird <= 0){
+                            if(birdBossCollision.bird == false){
                                 //arrete les points
                                 point = 0;
                                 //arrete le scroll                                
@@ -354,11 +354,14 @@ var toucheClavier = function(){
                             }, 1000);
                             
                             }else{
+                                //dessine le boss dans la page ennemis.js
                                 boss.active = true;
                                 //function qui active le compte a rebours du boss
                                 animationCountDown();
                                 //met animationCountDownActive a false pour ne pas ré activer l'animation 3 2 1
                                 animationCountDownActive = false;
+                                //augmente la vitesse de defilement
+                                vitesse = 5;
                             }
                             
                         }
@@ -423,7 +426,7 @@ var toucheClavier = function(){
 }
 
 
-var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteCollision, tailleHaut, tailleBas, tailleGauche, tailleDroite, divBird, compteurAnimationCollision, monTirDeuxDansBird){
+var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteCollision, tailleHaut, tailleBas, tailleGauche, tailleDroite, divBird, compteurAnimationCollision){
     this.bird = tirBird;
     this.top = positionTop;
     this.left = positionLeft;
@@ -434,7 +437,6 @@ var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteC
     this.tailleDroite = tailleDroite;
     this.divBird = divBird;
     this.compteur = compteurAnimationCollision;
-    this.tirDeuxDansBird = monTirDeuxDansBird;
 
 
     this.funcCollisionEnnemis = function(){
@@ -449,9 +451,6 @@ var ConstruitCollisionTir = function(positionTop, positionLeft, tirBird, spriteC
 
             //met la valeur a false pour ne pas redessiner l'oiseau ennemie dans la page ennemis.js
             this.bird = false;
-            //tir dans le boss
-            this.tirDeuxDansBird--;
-            // console.log(this.tirDeuxDansBird);
             
             //redefini la taille de pixel left pour la position de la collision
             positionHorizontal = this.left;

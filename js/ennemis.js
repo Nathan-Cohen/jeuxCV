@@ -101,7 +101,7 @@ var ennemisIniatialisation = function(){
         imgBoss: "image/flappyDragon/frame-1.png",
         imgBossAileBas: "image/flappyDragon/frame-3.png",
         sourceBoss: imgBoss,
-        vitesse: 7,              
+        vitesse: 10,              
         //function aleatoire pour definir le temp d'apparition d'un oiseau ennemi
         entierAleatoire: function (min, max){
             return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -110,8 +110,6 @@ var ennemisIniatialisation = function(){
     //met animationCountDownActive a true pour activer l'animation 3 2 1
     animationCountDownActive = true;
 
-    tempApparitionBoss = boss.entierAleatoire(70, 101);
-    apparitionTopEnnemiBoss = boss.entierAleatoire(40, 351);
     
     CompteurAnimationLose = 0;
 
@@ -123,6 +121,9 @@ var ennemisIniatialisation = function(){
 
     tempApparitionBird3 = objetBird3.entierAleatoire(101, 401);
     apparitionTopEnnemiBird3 = objetBird3.entierAleatoire(10, 401);
+
+    tempApparitionBoss = boss.entierAleatoire(70, 101);
+    apparitionTopEnnemiBoss = boss.entierAleatoire(40, 351);
 
     //recupere la balise audio de la collision
     sonCollision = document.getElementById("son-collision");    

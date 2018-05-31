@@ -6,7 +6,7 @@ body{
 }
 
 #start{
-    height: 525px;
+    height: 100%;
     background-image: url("image/fond.png");
     position: absolute;
 }
@@ -70,8 +70,8 @@ h2{
     font-weight: 30;
     position: absolute;
     margin: auto;
-    margin-left: 45%;
-    margin-top: -27%;
+    margin-left: 650px;
+    margin-top: -350px;
 }
 
 #canvas{
@@ -176,15 +176,15 @@ h2{
 }
 
 #win{
-    margin-top: -530px;
-    margin-left: 250px;
+    margin-top: -580px;
+    margin-left: 270px;
     position: absolute;
     display: none;
 }
 
 #lose{
-    margin-top: -530px;
-    margin-left: 250px;
+    margin-top: -580px;
+    margin-left: 270px;
     position: absolute;
     display: none;
 }
@@ -275,15 +275,15 @@ h2{
   
   @keyframes animationBoss {
     from {
-      margin-left: -150px;
+      margin-left: -8%;
     }
 
     50%{
-        margin-left: -1200px;
+        margin-left: -99%;
         transform: scaleX(-1);
     }
   
     to {
-      margin-left: -150px;
+      margin-left: -8%;
     }
   }
