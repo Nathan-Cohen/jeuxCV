@@ -87,12 +87,12 @@ var ennemisIniatialisation = function(){
 
 
     boss = {
-        tailleHautBirdBoss: 30,
-        tailleBasBirdBoss: 100,
+        tailleHautBirdBoss: 10,
+        tailleBasBirdBoss: 150,
         tailleGaucheBirdBoss: 90,
         tailleDroiteBirdBoss: 90,
-        tailleWidth: 1000,
-        tailleHeight: 1000,
+        tailleWidth: 900,
+        tailleHeight: 600,
         animationEnnemiHorizontalBoss: tailleEcran + 2000,
         animationEnnemiAileBoss: 0,
         tirDansBirdBoss: true,                        
@@ -123,7 +123,7 @@ var ennemisIniatialisation = function(){
     apparitionTopEnnemiBird3 = objetBird3.entierAleatoire(10, 401);
 
     tempApparitionBoss = boss.entierAleatoire(70, 101);
-    apparitionTopEnnemiBoss = boss.entierAleatoire(40, 351);
+    apparitionTopEnnemiBoss = boss.entierAleatoire(10, 351);
 
     //recupere la balise audio de la collision
     sonCollision = document.getElementById("son-collision");    

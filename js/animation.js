@@ -13,7 +13,9 @@ window.addEventListener('load', function(){
         tailleEcran = window.innerWidth - 1050;
         canvas.width = tailleEcran;    
         imgwin.style.width = tailleEcran + 'px';  
-        imglose.style.width = tailleEcran + 'px';              
+        imglose.style.width = tailleEcran + 'px';   
+        divlose.style.marginTop = -530 + 'px';           
+                   
     
     }else if(window.innerWidth > 1200){
         tailleEcran = window.innerWidth - 550;
@@ -36,7 +38,7 @@ window.addEventListener('load', function(){
     }else{
         tailleEcran = window.innerWidth
     }
-    
+
     //met le background a la taille de l'ecran
     presentation.style.width = window.innerWidth + 'px';
 
