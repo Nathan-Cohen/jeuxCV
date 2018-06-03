@@ -96,9 +96,7 @@ var dessinPerso = function(){
              ///////////////////////ANIMATION A L'APPUIE DES TOUCHES///////////////////////////
 var toucheClavier = function(){
     window.addEventListener('keydown', function direction(event){
-    var code = event.keyCode;
-    sonQuiAvance = document.getElementById("son-qui-avance");    
-    sonQuiTir = document.getElementById("son-qui-tir");    
+    var code = event.keyCode;    
             switch(code){
                 //droite
                 case 39:

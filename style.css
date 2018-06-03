@@ -189,6 +189,38 @@ h2{
     display: none;
 }
 
+/* son */
+#activeSon{
+    background-color: rgb(66, 18, 18);
+    border: none;
+    padding: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+#desactiveSon{
+    background-color: brown;
+    border: none;
+    padding: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+#bouttonSon{
+    float: right;
+    margin-right: 0px;
+    margin-top: 35px;
+    background-color: #5e5151;
+    opacity: 0.9;
+    padding: 9px;
+    color: white;
+    font-size: 20px;
+}
+
+
+
+
+
 /* div competence */
 #competence img{
     width: 100px;

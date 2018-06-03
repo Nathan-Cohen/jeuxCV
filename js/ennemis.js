@@ -29,7 +29,7 @@ var ennemisIniatialisation = function(){
     
     objetBird = {
         tailleHautBird: 20,
-        tailleBasBird: 70,
+        tailleBasBird: 90,
         tailleGaucheBird: 100,
         tailleDroiteBird: 90,
         croixBird : 'croixBird',
@@ -87,7 +87,7 @@ var ennemisIniatialisation = function(){
 
 
     boss = {
-        tailleHautBirdBoss: 10,
+        tailleHautBirdBoss: 0,
         tailleBasBirdBoss: 150,
         tailleGaucheBirdBoss: 90,
         tailleDroiteBirdBoss: 90,
@@ -124,10 +124,6 @@ var ennemisIniatialisation = function(){
 
     tempApparitionBoss = boss.entierAleatoire(70, 101);
     apparitionTopEnnemiBoss = boss.entierAleatoire(10, 351);
-
-    //recupere la balise audio de la collision
-    sonCollision = document.getElementById("son-collision");    
-
 
 
     //bird corbeau
@@ -374,7 +370,7 @@ var ColisionBranche = function(){
 
                     //attent 1000 avant d'afficher "you lose"
                     setTimeout(function(){
-                        sonCollision = 0;
+                        sonCollision.src = 'son/Silence.mp3';                                   
                         //affiche la div lose
                         var lose = document.getElementById('lose');
                         lose.style.display = "block";
@@ -429,7 +425,7 @@ function ColisionBird (apparitionTopEnnemi, pixelLeft, animationEnnemiHorizontal
      window.clearInterval(fleche);
      //attent 1000 avant d'afficher "you lose"
      setTimeout(function(){
-        sonCollision = 0;
+        sonCollision.src = 'son/Silence.mp3';                   
         //affiche la div lose
         var lose = document.getElementById('lose');
         lose.style.display = "block";
