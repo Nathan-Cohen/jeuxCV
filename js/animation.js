@@ -21,8 +21,10 @@ window.addEventListener('load', function(){
         canvas.width = tailleEcran;
         
         imgwin.style.width = 790 + 'px';  
-
-        imglose.style.width = 800 + 'px';            
+        divwin.style.marginLeft = "-55px";
+        
+        imglose.style.width = 800 + 'px';  
+        divlose.style.marginLeft = "-55px";                  
         
     }else if (window.innerWidth < 500){
         tailleEcran = window.innerWidth;
