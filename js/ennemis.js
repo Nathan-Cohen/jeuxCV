@@ -18,7 +18,7 @@ var ennemisIniatialisation = function(){
     imgBird3.src = "image/collagebird3.png";
 
     imgBoss = new Image();
-    imgBoss.src = "image/flappyDragon/frame-1.png";
+    imgBoss.src = "image/flappyDragon/collageBirdBoss.png";
 
     objetBranche = {
         tailleHautBranche: 100,
@@ -53,9 +53,6 @@ var ennemisIniatialisation = function(){
         tirDansBird2: true,        
         animationEnnemiHorizontalBird2: tailleEcran,
         animationEnnemiAileBird2: 0,
-        imgBird2: "image/bird2.png",
-        imgBird2AileBas: "image/bird2ailesbas.png",
-        sourceBird2: imgBird2,
         positionLeftInitialeBird2: 0, 
         positionLeftAileBasBird2: 520, 
         vitesse: 6,      
@@ -75,9 +72,6 @@ var ennemisIniatialisation = function(){
         tirDansBird3: true,                
         animationEnnemiHorizontalBird3: tailleEcran,
         animationEnnemiAileBird3: 0,
-        imgBird3: "image/bird3.png",
-        imgBird3AileBas: "image/bird3ailesbas.png",
-        sourceBird3: imgBird3,
         positionLeftInitialeBird3: 0,
         positionLeftAileBasBird3: 580,         
         vitesse: 6,              
@@ -93,18 +87,15 @@ var ennemisIniatialisation = function(){
         tailleBasBirdBoss: 150,
         tailleGaucheBirdBoss: 90,
         tailleDroiteBirdBoss: 90,
-        tailleWidth: 900,
-        tailleHeight: 600,
+        tailleWidth: 450,
+        tailleHeight: 300,
         animationEnnemiHorizontalBoss: tailleEcran + 2000,
         animationEnnemiAileBoss: 0,
         tirDansBirdBoss: true,                        
         tirDeuxDansBirdBoss: 500,                        
         active: false,
         positionLeftInitialeBirdBoss: 0,
-        positionLeftAileBasBirdBoss: 520, 
-        imgBoss: "image/flappyDragon/frame-1.png",
-        imgBossAileBas: "image/flappyDragon/frame-3.png",
-        sourceBoss: imgBoss,
+        positionLeftAileBasBirdBoss: 480, 
         vitesse: 10,              
         //function aleatoire pour definir le temp d'apparition d'un oiseau ennemi
         entierAleatoire: function (min, max){
@@ -144,7 +135,7 @@ var ennemisIniatialisation = function(){
        
     //bird Boss
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi    
-    birdBoss = new ConstruireAnimationBird(tempApparitionBoss, boss.animationEnnemiHorizontalBoss, boss.animationEnnemiAileBoss, boss.vitesse, boss.positionLeftInitialeBirdBoss, boss.positionLeftAileBasBirdBoss,apparitionTopEnnemiBoss);
+    birdBoss = new ConstruireAnimationBird(tempApparitionBoss, boss.animationEnnemiHorizontalBoss, boss.animationEnnemiAileBoss, boss.vitesse, boss.positionLeftInitialeBirdBoss, boss.positionLeftAileBasBirdBoss, apparitionTopEnnemiBoss);
     
 }
 
@@ -216,7 +207,7 @@ var dessinEnnemi = function(){
 
     if(boss.active){
         if(boss.tirDansBirdBoss){
-            ctx.drawImage(imgBoss, 0, 0, boss.tailleWidth, boss.tailleHeight, birdBoss.anime, birdBoss.randomTopBoss, 200, 200);
+            ctx.drawImage(imgBoss, birdBoss.leftSprite, 0, boss.tailleWidth, boss.tailleHeight, birdBoss.anime, birdBoss.randomTopBoss, 200, 200);
             // vitesse = 3;
                 ColisionBird(birdBoss.randomTopBoss, personnage.pixelLeft, birdBoss.anime, boss.tailleHautBirdBoss, boss.tailleBasBirdBoss, boss.tailleDroiteBirdBoss, boss.tailleGaucheBirdBoss);
                 birdBoss.funcAnimation();
