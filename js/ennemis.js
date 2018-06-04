@@ -136,7 +136,7 @@ var ennemisIniatialisation = function(){
     
     //bird3 jaune
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi
-    bird3 = new ConstruireAnimationBird(tempApparitionBird3, objetBird3.animationEnnemiHorizontalBird3, objetBird3.animationEnnemiAileBird3, objetBird3.imgBird3, objetBird3.imgBird3AileBas, objetBird3.sourceBird3, objetBird3.vitesse);
+    bird3 = new ConstruireAnimationBird2(tempApparitionBird3, objetBird3.animationEnnemiHorizontalBird3, objetBird3.animationEnnemiAileBird3, objetBird3.imgBird3, objetBird3.imgBird3AileBas, objetBird3.sourceBird3, objetBird3.vitesse);
        
     //bird Boss
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi    
@@ -264,6 +264,46 @@ if(this.temp < 0){
     //enleve les px au compteur de droite a gauche
      this.anime =  this.anime - this.vitesse;
     this.aile++;
+    console.log(this.aile);
+        if(this.aile > 20){
+            this.aile = 0;
+        }else if(this.aile > 10){
+            this.imgsource.src = this.img;
+        }else{
+            this.imgsource.src = this.imgailebas;//probleme de source            
+        }
+    }
+
+    //si l'animationEnnemi est inferieur a -54 (pour disparaitre de l'ecran) on ajoute un nouveau temp d'apparition au prochain oiseau ennemi et on remet l'animation a droite (750px)
+    if( this.anime <-54){
+        this.temp = objetBird.entierAleatoire(251, 600);
+        this.randomTopBoss = boss.entierAleatoire(0, 351);
+         this.anime = tailleEcran;            
+    }
+
+    }
+
+    
+}        
+
+var ConstruireAnimationBird2 = function(montempApparition, monanimationEnnemiHorizontal, monAnimationEnnemiAile, imgbird, imgbirdailebas, source, vitesse, topBoss){
+    this.anime = monanimationEnnemiHorizontal;
+    this.aile = monAnimationEnnemiAile;
+    this.temp = montempApparition;
+    this.img = imgbird;
+    this.imgailebas = imgbirdailebas;
+    this.imgsource = source;
+    this.vitesse = vitesse;
+    this.randomTopBoss = topBoss;
+    this.funcAnimation = function(){
+// reduit le temp d'apparition
+this.temp--;
+//si le temp d'apparition est inferieur a 0 on affiche l'oiseau ennemis et on lui retire 6 a chaque passage pour le decaler ver la gauche
+if(this.temp < 0){
+    //enleve les px au compteur de droite a gauche
+     this.anime =  this.anime - this.vitesse;
+    this.aile++;
+    console.log(this.aile);
         if(this.aile > 20){
             this.aile = 0;
         }else if(this.aile > 10){
