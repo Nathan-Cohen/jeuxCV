@@ -126,31 +126,40 @@ h2{
     margin-left: 16%;
 }
 
+#logo{
+    width: 35px;
+}
+
 #croixhtml{
     position: absolute;
+    width: 35px;
     margin-top: 5%;
     display: none;
 }
 #croixcss{
     position: absolute;
+    width: 35px;
     margin-top: 5%;
     display: none;
     
 }
 #croixjquery{
     position: absolute;
+    width: 35px;
     margin-top: 5%;
     display: none;
     
 }
 #croixjavascript{
     position: absolute;
+    width: 35px;
     margin-top: 5%;
     display: none;
     
 }
 #croixphp{
     position: absolute;
+    width: 35px;
     margin-top: 5%;
     display: none;
     margin-left: -23%;
@@ -159,18 +168,21 @@ h2{
 
 #croixBird{
     position: absolute;
+    width: 35px;
     margin-top: 5%;
     display: none;
     
 }
 #croixBird2{
     position: absolute;
+    width: 35px;
     margin-top: 5%;
     display: none;
     
 }
 #croixBird3{
     position: absolute;
+    width: 35px;
     margin-top: 5%;
     display: none;
     
