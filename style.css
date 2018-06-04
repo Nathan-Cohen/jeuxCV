@@ -224,8 +224,38 @@ h2{
     padding: 9px;
     color: white;
     font-size: 20px;
+    background-image: url('image/menubois2.jpg');
+    background-repeat: no-repeat;
 }
 
+#perso-gif{
+    width: 100px;
+    animation-duration: 5s;
+    animation-iteration-count:infinite;
+    animation-name: animation-gif-perso;
+    position: absolute;
+    margin-top: -30px;
+
+}
+@keyframes animation-gif-perso {
+    from {
+      margin-left: -2%;
+    }
+
+    50%{
+        margin-left: 3%;
+        
+    }
+  
+    to {
+      margin-left: -2%;
+      transform: scaleX(-1);
+    }
+  }
+
+  #logo-github{
+      width: 50px;
+  }
 
 
 
