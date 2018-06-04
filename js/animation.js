@@ -13,8 +13,7 @@ window.addEventListener('load', function(){
         tailleEcran = window.innerWidth - 1050;
         canvas.width = tailleEcran;    
         imgwin.style.width = tailleEcran + 'px';  
-        imglose.style.width = tailleEcran + 'px';   
-        divlose.style.marginTop = -530 + 'px';           
+        imglose.style.width = tailleEcran + 'px';         
                    
     
     }else if(window.innerWidth > 1200){
@@ -23,8 +22,7 @@ window.addEventListener('load', function(){
         
         imgwin.style.width = 790 + 'px';  
 
-        imglose.style.width = 800 + 'px';        
-        divlose.style.marginTop = -530 + 'px';        
+        imglose.style.width = 800 + 'px';            
         
     }else if (window.innerWidth < 500){
         tailleEcran = window.innerWidth;
@@ -32,8 +30,7 @@ window.addEventListener('load', function(){
 
          imgwin.style.width = 790 + 'px';
  
-         imglose.style.width = 800 + 'px';        
-         divlose.style.marginTop = -530 + 'px';           
+         imglose.style.width = 800 + 'px';                
                    
     }else{
         tailleEcran = window.innerWidth
