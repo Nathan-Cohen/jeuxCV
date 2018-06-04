@@ -136,7 +136,7 @@ var ennemisIniatialisation = function(){
     
     //bird3 jaune
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi
-    bird3 = new ConstruireAnimationBird2(tempApparitionBird3, objetBird3.animationEnnemiHorizontalBird3, objetBird3.animationEnnemiAileBird3, objetBird3.imgBird3, objetBird3.imgBird3AileBas, objetBird3.sourceBird3, objetBird3.vitesse);
+    bird3 = new ConstruireAnimationBird(tempApparitionBird3, objetBird3.animationEnnemiHorizontalBird3, objetBird3.animationEnnemiAileBird3, objetBird3.imgBird3, objetBird3.imgBird3AileBas, objetBird3.sourceBird3, objetBird3.vitesse);
        
     //bird Boss
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi    
@@ -264,7 +264,7 @@ if(this.temp < 0){
     //enleve les px au compteur de droite a gauche
      this.anime =  this.anime - this.vitesse;
     this.aile++;
-    console.log(this.aile);
+    console.log('image clignote');
         if(this.aile > 20){
             this.aile = 0;
         }else if(this.aile > 10){
