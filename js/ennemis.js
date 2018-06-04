@@ -12,10 +12,10 @@ var ennemisIniatialisation = function(){
     imgBird.src = "image/bird_attaque.png";
     
     imgBird2 = new Image();
-    imgBird2.src = "image/bird2.png";
+    imgBird2.src = "image/collagebird2.png";
     
     imgBird3 = new Image();
-    imgBird3.src = "image/bird3.png";
+    imgBird3.src = "image/collagebird3.png";
 
     imgBoss = new Image();
     imgBoss.src = "image/flappyDragon/frame-1.png";
@@ -56,7 +56,8 @@ var ennemisIniatialisation = function(){
         imgBird2: "image/bird2.png",
         imgBird2AileBas: "image/bird2ailesbas.png",
         sourceBird2: imgBird2,
-        positionLeftInitialeBird2: 0,  
+        positionLeftInitialeBird2: 0, 
+        positionLeftAileBasBird2: 520, 
         vitesse: 6,      
         //function aleatoire pour definir le temp d'apparition d'un oiseau ennemi
         entierAleatoire: function (min, max){
@@ -78,6 +79,7 @@ var ennemisIniatialisation = function(){
         imgBird3AileBas: "image/bird3ailesbas.png",
         sourceBird3: imgBird3,
         positionLeftInitialeBird3: 0,
+        positionLeftAileBasBird3: 580,         
         vitesse: 6,              
         //function aleatoire pour definir le temp d'apparition d'un oiseau ennemi
         entierAleatoire: function (min, max){
@@ -98,6 +100,8 @@ var ennemisIniatialisation = function(){
         tirDansBirdBoss: true,                        
         tirDeuxDansBirdBoss: 500,                        
         active: false,
+        positionLeftInitialeBirdBoss: 0,
+        positionLeftAileBasBirdBoss: 520, 
         imgBoss: "image/flappyDragon/frame-1.png",
         imgBossAileBas: "image/flappyDragon/frame-3.png",
         sourceBoss: imgBoss,
@@ -132,15 +136,15 @@ var ennemisIniatialisation = function(){
     
     //bird2 marron
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi
-    bird2 = new ConstruireAnimationBird(tempApparitionBird2, objetBird2.animationEnnemiHorizontalBird2, objetBird2.animationEnnemiAileBird2, objetBird2.imgBird2, objetBird2.imgBird2AileBas, objetBird2.sourceBird2, objetBird2.vitesse);
+    bird2 = new ConstruireAnimationBird(tempApparitionBird2, objetBird2.animationEnnemiHorizontalBird2, objetBird2.animationEnnemiAileBird2, objetBird2.vitesse, objetBird2.positionLeftInitialeBird2, objetBird2.positionLeftAileBasBird2);
     
     //bird3 jaune
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi
-    bird3 = new ConstruireAnimationBird(tempApparitionBird3, objetBird3.animationEnnemiHorizontalBird3, objetBird3.animationEnnemiAileBird3, objetBird3.imgBird3, objetBird3.imgBird3AileBas, objetBird3.sourceBird3, objetBird3.vitesse);
+    bird3 = new ConstruireAnimationBird(tempApparitionBird3, objetBird3.animationEnnemiHorizontalBird3, objetBird3.animationEnnemiAileBird3, objetBird3.vitesse, objetBird3.positionLeftInitialeBird3, objetBird3.positionLeftAileBasBird3);
        
     //bird Boss
     // envoie les parametres dans la fonction pour animer l'oiseau ennemi    
-    birdBoss = new ConstruireAnimationBird(tempApparitionBoss, boss.animationEnnemiHorizontalBoss, boss.animationEnnemiAileBoss, boss.imgBoss, boss.imgBossAileBas, boss.sourceBoss, boss.vitesse, apparitionTopEnnemiBoss);
+    birdBoss = new ConstruireAnimationBird(tempApparitionBoss, boss.animationEnnemiHorizontalBoss, boss.animationEnnemiAileBoss, boss.vitesse, boss.positionLeftInitialeBirdBoss, boss.positionLeftAileBasBirdBoss,apparitionTopEnnemiBoss);
     
 }
 
@@ -184,12 +188,11 @@ var dessinEnnemi = function(){
        ctx.shadowOffsetY = 1;
        ctx.shadowColor = '#FF0000';
        ctx.shadowBlur = 5;
-        ctx.drawImage(imgBird2, objetBird2.positionLeftInitialeBird2, 0, 600, 600, bird2.anime, apparitionTopEnnemiBird2, 100, 100); 
+        ctx.drawImage(imgBird2, bird2.leftSprite, 0, 500, 500, bird2.anime, apparitionTopEnnemiBird2, 150, 150); 
         ctx.restore();
         ColisionBird(apparitionTopEnnemiBird2, personnage.pixelLeft, bird2.anime, objetBird2.tailleHautBird2, objetBird2.tailleBasBird2, objetBird2.tailleDroiteBird2, objetBird2.tailleGaucheBird2);
         //execute la function d'animation a chaque passage de dessinEnnemi dans le setInterval 
         bird2.funcAnimation();
-        // console.log(bird2);
 
     }
     
@@ -202,12 +205,11 @@ var dessinEnnemi = function(){
      ctx.shadowOffsetY = 1;
      ctx.shadowColor = '#FF0000';
      ctx.shadowBlur = 5;
-    ctx.drawImage(imgBird3, objetBird3.positionLeftInitialeBird3, 0, 600, 600, bird3.anime, apparitionTopEnnemiBird3, 140, 140);
+    ctx.drawImage(imgBird3, bird3.leftSprite, 0, 500, 500, bird3.anime, apparitionTopEnnemiBird3, 180, 180);
     ctx.restore(); 
     ColisionBird(apparitionTopEnnemiBird3, personnage.pixelLeft, bird3.anime, objetBird3.tailleHautBird3, objetBird3.tailleBasBird3, objetBird3.tailleDroiteBird3, objetBird3.tailleGaucheBird3);
     //execute la function d'animation a chaque passage de dessinEnnemi dans le setInterval 
     bird3.funcAnimation();
-    // console.log(bird3);
     
 
     }
@@ -247,14 +249,13 @@ var animationCountDown = function(){
 
 
                         ////////////////ANIMATION DU SPRITE//////////////
-var ConstruireAnimationBird = function(montempApparition, monanimationEnnemiHorizontal, monAnimationEnnemiAile, imgbird, imgbirdailebas, source, vitesse, topBoss){
+var ConstruireAnimationBird = function(montempApparition, monanimationEnnemiHorizontal, monAnimationEnnemiAile, vitesse, leftInitialeSpriteBird, positionLeftAileBasBird2, topBoss){
     this.anime = monanimationEnnemiHorizontal;
     this.aile = monAnimationEnnemiAile;
     this.temp = montempApparition;
-    this.img = imgbird;
-    this.imgailebas = imgbirdailebas;
-    this.imgsource = source;
     this.vitesse = vitesse;
+    this.leftSprite = leftInitialeSpriteBird;
+    this.leftAileBasSprite = positionLeftAileBasBird2;
     this.randomTopBoss = topBoss;
     this.funcAnimation = function(){
 // reduit le temp d'apparition
@@ -264,12 +265,13 @@ if(this.temp < 0){
     //enleve les px au compteur de droite a gauche
      this.anime =  this.anime - this.vitesse;
     this.aile++;
-        if(this.aile > 20){
+    if(this.aile > 20){
             this.aile = 0;
         }else if(this.aile > 10){
-            this.imgsource.src = this.img;
+            this.leftSprite = this.leftAileBasSprite;
         }else{
-            this.imgsource.src = this.imgailebas;//probleme de source            
+            this.leftSprite = 0;
+                    
         }
     }
 
