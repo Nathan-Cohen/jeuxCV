@@ -101,79 +101,39 @@ window.addEventListener('load', function(){
     });  
     
     
-var restart = document.getElementById('restart');
-restart.addEventListener('click', function(){
-    //recharge la page
-location.reload();
-});
+    var restart = document.getElementById('restart');
+    restart.addEventListener('click', function(){
+        //recharge la page
+        location.reload();
+    });
 
-//activer/desactiver le son
+    //activer/desactiver le son
      sonQuiAvance = document.getElementById("son-qui-avance");   
      sonQuiTir = document.getElementById("son-qui-tir");    
      sonCollision = document.getElementById("son-collision");    
      activeSon = document.getElementById('activeSon');
      desactiveSon = document.getElementById('desactiveSon');    
 
-activeSon.addEventListener('click', function(){
-    sonQuiAvance.src = 'son/perso-qui-avance.mp3';    
-    sonQuiTir.src = 'son/perso-tir.wav';    
-    sonCollision.src = 'son/perso-collision.wav'; 
-    
-    //change la couleur du boutton
-    activeSon.style.backgroundColor = "rgb(66, 18, 18)";
-    desactiveSon.style.backgroundColor = "brown";
+    activeSon.addEventListener('click', function(){
+        sonQuiAvance.src = 'son/perso-qui-avance.mp3';    
+        sonQuiTir.src = 'son/perso-tir.wav';    
+        sonCollision.src = 'son/perso-collision.wav'; 
+        
+        //change la couleur du boutton
+        activeSon.style.backgroundColor = "rgb(66, 18, 18)";
+        desactiveSon.style.backgroundColor = "brown";
 
 
-});
-desactiveSon.addEventListener('click', function(){
-    console.log(sonQuiAvance);
-    sonQuiAvance.src = 'son/Silence.mp3'; 
-    sonQuiTir.src = 'son/Silence.mp3';           
-    sonCollision.src = 'son/Silence.mp3';   
-            
-    //change la couleur du boutton
-    desactiveSon.style.backgroundColor = "rgb(66, 18, 18)";
-    activeSon.style.backgroundColor = "brown";
-});
-
-
-
-
-
-
-
-
-
-
-detectionNavigateur = function(){
-        // Firefox 1.0+
-        var isFirefox = typeof InstallTrigger !== 'undefined';
-        // Internet Explorer 6-11
-        var isIE = /*@cc_on!@*/false || !!document.documentMode;
-        // Edge 20+
-        var isEdge = !isIE && !!window.StyleMedia;
-        // Chrome 1+
-        var isChrome = !!window.chrome && !!window.chrome.webstore;
-        // Blink engine detection
-        var isBlink = (isChrome || isOpera) && !!window.CSS;
-
-        if(isChrome){
-            console.log('vous etes sur Chrome');
-
-        }else if(isFirefox){
-            console.log('vous etes sur Firefox');
-
-        }else if(isIE){
-            console.log('vous etes sur IE');
-            
-        }else if(isEdge){
-            console.log('vous etes sur Edge');
-            
-        }
-}
-detectionNavigateur();
-
-
-
+    });
+    desactiveSon.addEventListener('click', function(){
+        console.log(sonQuiAvance);
+        sonQuiAvance.src = 'son/Silence.mp3'; 
+        sonQuiTir.src = 'son/Silence.mp3';           
+        sonCollision.src = 'son/Silence.mp3';   
+                
+        //change la couleur du boutton
+        desactiveSon.style.backgroundColor = "rgb(66, 18, 18)";
+        activeSon.style.backgroundColor = "brown";
+    });
 
 });
