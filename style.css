@@ -176,15 +176,11 @@ h2{
 }
 
 #win{
-    top: 0;
-    margin-left: 270px;
     position: absolute;
     display: none;
 }
 
 #lose{
-    margin-top: -580px;
-    margin-left: 270px;
     position: absolute;
     display: none;
 }
