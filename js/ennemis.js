@@ -336,11 +336,6 @@ var construireAnimationCorbeau = function(montempApparition, monanimationEnnemiH
 
         /////////////////////////////COLISION DE LA BRANCHE//////////////////////////////
 var ColisionBranche = function(){
-            /*
-            si le top est superieur a 100px et la position de la branche moin la taille de la branche moin le nombre de marge a gauche de l'oiseau doit etre inferieur ou egal a 10 et la position initiale est plus grandre que 100 OU si le top est superieur a 100px et la position de la branche moin la taille de la branche moin le nombre de marge a gauche de l'oiseau est egal a 0 et la position initiale est plus petite que 100
-            */      
-           
-           
                 if(personnage.pixelTop > objetBranche.tailleHautBranche && (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft <= 10 && objetBranche.tailleDroiteBranche < (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft && positionInitialedeux > 100 || personnage.pixelTop > objetBranche.tailleHautBranche && (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft <= 10 && objetBranche.tailleDroiteBranche < (positionInitialedeux + objetBranche.tailleGaucheBranche) - personnage.pixelLeft && positionInitialedeux < 100){
                     // son
                     sonCollision.play();
@@ -394,7 +389,6 @@ var ColisionBranche = function(){
 
             /////////////////////////////COLISION DES OISEAUX ENNEMIE//////////////////////////////  
 function ColisionBird (apparitionTopEnnemi, pixelLeft, animationEnnemiHorizontal, tailleHaut, tailleBas, tailleDroite, tailleGauche){
-             //top minimum et maximum pour la collision et la position de l'animation est plus grande que la position (pixelLeft) du perso moins sa taille et la position de l'animation est plus petite que la position (pixelLeft) du perso pluss sa taille
     if (apparitionTopEnnemi - tailleHaut < personnage.pixelTop && apparitionTopEnnemi + tailleBas > personnage.pixelTop && animationEnnemiHorizontal > pixelLeft - tailleDroite && animationEnnemiHorizontal < pixelLeft + tailleGauche){
     // son
     sonCollision.play();

@@ -133,7 +133,7 @@ var toucheClavier = function(){
                         sonQuiAvance.play(); 
 
                         fleche = window.setInterval(function(){
-                            //a chaque clique sur le touche droite on ajoute 1 au personnage.compteurLeft si personnage.compteurLeft est plus grand que 3 on le remet a 0 et on change la position du sprite pour afficher l'image avec des ailes en haut
+                            //a chaque clique sur le touche gauche on ajoute 1 au personnage.compteurLeft si personnage.compteurLeft est plus grand que 3 on le remet a 0 et on change la position du sprite pour afficher l'image avec des ailes en haut
                             personnage.compteurLeft++;
                             if(personnage.compteurLeft > 3){
                                 personnage.compteurLeft = 0;
@@ -160,7 +160,7 @@ var toucheClavier = function(){
                         sonQuiAvance.play(); 
 
                         fleche = window.setInterval(function(){
-                            //a chaque clique sur le touche droite on ajoute 1 au personnage.compteurTop si personnage.compteurTop est plus grand que 3 on le remet a 0 et on change la position du sprite pour afficher l'image avec des ailes en haut
+                            //a chaque clique sur le touche haut on ajoute 1 au personnage.compteurTop si personnage.compteurTop est plus grand que 3 on le remet a 0 et on change la position du sprite pour afficher l'image avec des ailes en haut
                             personnage.compteurTop++;
                             if(personnage.compteurTop > 3){
                                 personnage.compteurTop = 0;
@@ -188,7 +188,7 @@ var toucheClavier = function(){
                         sonQuiAvance.play(); 
 
                         fleche = window.setInterval(function(){
-                            //a chaque clique sur le touche droite on ajoute 1 au personnage.compteurBottom si personnage.compteurBottom est plus grand que 3 on le remet a 0 et on change la position du sprite pour afficher l'image avec des ailes en haut
+                            //a chaque clique sur le touche bas on ajoute 1 au personnage.compteurBottom si personnage.compteurBottom est plus grand que 3 on le remet a 0 et on change la position du sprite pour afficher l'image avec des ailes en haut
                             personnage.compteurBottom++;
                             if(personnage.compteurBottom > 3){
                                 personnage.compteurBottom = 0;
@@ -215,9 +215,7 @@ var toucheClavier = function(){
                 break;
                 
                 case 32:
-                event.preventDefault();           
-                // console.log(personnage.tirPressed);
-                // console.log(pixelLeftTir);
+                event.preventDefault();
                                
                 if(personnage.animationTirEnCour === false){
                     //son
@@ -254,6 +252,7 @@ var toucheClavier = function(){
                         bird3Collision.funcCollisionEnnemis();
                         birdBossCollision.funcCollisionEnnemis();
 
+                        //si l'oiseau 1 est toucher
                         if(birdCollision.bird == false){
                             //si le tir touche l'oiseau ennemie on met la valeur en false pour ne pas le redessiner dans la page ennemis.js
                             objetBird.tirDansBird = false;
@@ -277,6 +276,7 @@ var toucheClavier = function(){
 
         
                         }
+                        //si l'oiseau 2 est toucher                        
                         if(bird2Collision.bird == false){
                             //si le tir touche l'oiseau ennemie on met la valeur en false pour ne pas le redessiner dans la page ennemis.js
                             objetBird2.tirDansBird2 = false;
@@ -298,6 +298,7 @@ var toucheClavier = function(){
                             bts.style.display = "block";
                             
                         }
+                        //si l'oiseau 3 est toucher                        
                         if(bird3Collision.bird == false){
                             //si le tir touche l'oiseau ennemie on met la valeur en false pour ne pas le redessiner dans la page ennemis.js
                             objetBird3.tirDansBird3 = false;
@@ -319,8 +320,8 @@ var toucheClavier = function(){
                             certification.style.display = "block";
                             
                         }
-                        // console.log('base' + birdBossCollision.tirDeuxDansBird);
-                        //si tout les ennemis on été tuer et toutes les compétences on été recuperer
+                        
+                        //si tout les ennemis on été tuer
                         if(birdCollision.bird == false && bird2Collision.bird == false && bird3Collision.bird == false){
                             //si le boss est tuer
                             if(birdBossCollision.bird == false){
@@ -364,7 +365,7 @@ var toucheClavier = function(){
                             
                         }
                         
-                        //si le tir atteint 350 pixel de gauche on termine et on remet les valeurs a 0
+                        //si le tir atteint 200 pixel de gauche on termine et on remet les valeurs a 0
                         if(pixelLeftTir - personnage.pixelLeft > 200){
                             pixelLeftTir = personnage.pixelLeft;
                             pixelTopTir = personnage.pixelTop;
