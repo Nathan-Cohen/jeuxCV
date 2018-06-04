@@ -62,7 +62,8 @@ h2{
 }
 
 #fond{
-    margin-left: 270px;
+    margin: 0 auto;
+    width: 50%;
 }
 
 #countDown{
