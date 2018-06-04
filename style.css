@@ -103,7 +103,7 @@ h2{
     display: inline-block;
 }
 
-#menuimg{
+.menuimg{
     width:250px;
     position: fixed;
     top:0;
